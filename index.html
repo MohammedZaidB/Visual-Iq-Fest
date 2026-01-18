@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual-IQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&family=Outfit:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="college-header">
+            <div class="college-brand">
+                <img src="college_logo.png" alt="College Logo" class="college-logo">
+                <div class="college-text">
+                    <h1>ISLAMIAH COLLEGE (AUTONOMOUS)</h1>
+                    <p class="subtitle">DEPARTMENT OF COMPUTER SCIENCE & BCA/Data Science</p>
+                    <!-- Event Font Logo -->
+                    <img src="" alt="Visual IQ Fest Logo" class="event-font-logo" id="eventFontLogo"
+                        style="height: 60px; margin-top: 0.5rem; display: block;">
+                </div>
+            </div>
+            <div class="header-controls">
+                <!-- Rules button moved to Hero Section as requested -->
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Event Hero Section -->
+        <section class="event-hero">
+
+            <div class="event-title-container">
+                <!-- Replaced Text with Image -->
+                <img src="LOGO VQ.jpeg" alt="Dream IT 2.0 2k25" class="event-title-img" id="eventTitleImage">
+                <!-- Placeholder text if image fails or user hasn't added it yet -->
+                <p class="hero-main-title">
+                    Visual-IQ</p>
+                <p class="event-subtitle">Identify • React • Conquer</p>
+            </div>
+
+            <!-- New Big Stylish Rules Button -->
+            <div class="hero-actions">
+                <button id="rulesBtn" class="big-rules-btn">
+                    <i class="fas fa-scroll"></i>
+                    <span>Read Event Protocols</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Start Screen -->
+        <div id="startScreen">
+            <div class="rounds-container">
+                <!-- Round 1 - 40 Questions -->
+                <div class="round-card" data-round="1">
+                    <div class="round-header">
+                        <div class="round-number">01</div>
+                    </div>
+                    <div class="round-details">
+                        <div class="detail-item">
+                            <i class="fas fa-puzzle-piece detail-icon"></i>
+                            <div>
+                                <div class="detail-value">Identify Logos</div>
+                                <div class="detail-text">Reveal the puzzle</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock detail-icon"></i>
+                            <div>
+                                <div class="detail-value">30 Seconds</div>
+                                <div class="detail-text">Per Question</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="start-btn">
+                        Start Round 1
+                    </button>
+                </div>
+
+                <!-- Round 2 - 20 Questions -->
+                <div class="round-card" data-round="2">
+                    <div class="round-header">
+                        <div class="round-number">02</div>
+                    </div>
+                    <div class="round-details">
+                        <div class="detail-item">
+                            <i class="fas fa-question-circle detail-icon"></i>
+                            <div>
+                                <div class="detail-value">20 Questions</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock detail-icon"></i>
+                            <div>
+                                <div class="detail-value">30 Seconds</div>
+                                <div class="detail-text">Per Question</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="start-btn">
+                        Start Round 2
+                    </button>
+                </div>
+
+                <!-- Round 3 - 15 Questions -->
+                <div class="round-card" data-round="3">
+                    <div class="round-header">
+                        <div class="round-number">03</div>
+                    </div>
+                    <div class="round-details">
+                        <div class="detail-item">
+                            <i class="fas fa-question-circle detail-icon"></i>
+                            <div>
+                                <div class="detail-value">15 Questions</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock detail-icon"></i>
+                            <div>
+                                <div class="detail-value">30 Seconds</div>
+                                <div class="detail-text">Per Question</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="start-btn">
+                        Start Round 3
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Round Screen -->
+        <div id="roundScreen" class="round-screen">
+            <div class="round-top-bar">
+                <button class="back-btn" id="backButton">
+                    <i class="fas fa-arrow-left"></i>
+                    Return to Rounds
+                </button>
+                <div class="round-details-panel">
+                    <h2 id="roundTitle">Round 1</h2>
+                    <p>ISLAMIAH COLLEGE • 30-second timed questions • Complete all questions</p>
+                </div>
+            </div>
+
+            <!-- Progress -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <div class="progress-title">Round Progress</div>
+                    <div class="progress-count" id="progressCount">0/40</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+            </div>
+
+            <!-- Number Grid (Dynamic per round) -->
+            <div class="numbers-grid" id="numbersGrid">
+                <!-- Numbers will be generated based on round -->
+            </div>
+        </div>
+
+        <!-- Question Modal -->
+        <div class="modal-overlay" id="questionModal">
+            <div class="question-modal">
+                <div class="question-header">
+                    <div class="question-position" id="questionPosition">Question 1 of 40</div>
+                    <button class="close-btn" id="closeQuestion">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Puzzle Container (Specific for Round 1) -->
+                <div id="puzzleContainer" class="puzzle-container" style="display: none;">
+                    <img id="puzzleImage" src="" alt="Hidden Logo" class="puzzle-image">
+                    <div id="puzzleGrid" class="puzzle-grid">
+                        <!-- Tiles generated by JS -->
+                    </div>
+                </div>
+
+                <div class="question-text" id="questionText"></div>
+
+                <!-- 30-Second Timer -->
+                <div class="timer-container">
+                    <div class="timer-display">
+                        <div class="timer-value" id="timerValue">30</div>
+                        <div class="timer-label" id="timerLabel">seconds remaining</div>
+                    </div>
+                </div>
+
+                <!-- Choices -->
+                <div class="choices-container" id="choicesContainer">
+                    <!-- Choices will be generated here -->
+                </div>
+
+                <!-- Result Display -->
+                <div class="result-container" id="resultContainer">
+                    <div class="result-icon" id="resultIcon"></div>
+                    <div class="result-message" id="resultMessage"></div>
+                    <div class="explanation-box" id="explanationBox"></div>
+                    <div class="correct-answer" id="correctAnswer"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completion Modal -->
+        <div class="completion-modal" id="completionModal">
+            <div class="completion-card">
+                <div class="completion-icon">🏆</div>
+                <h2 class="completion-title">Round Complete</h2>
+                <p class="completion-message" id="completionMessage">
+                    Congratulations on completing this academic challenge!
+                </p>
+                <div class="action-buttons">
+                    <button class="action-btn primary" id="resetRound">
+                        <i class="fas fa-redo"></i>
+                        Try Again
+                    </button>
+                    <button class="action-btn secondary" id="backToRounds">
+                        <i class="fas fa-th-list"></i>
+                        All Rounds
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="college-footer">
+        <div class="footer-content">
+            <!-- Organisers Section -->
+            <div class="footer-section organisers">
+                <h3><i class="fas fa-users-cog"></i> Event Organizers</h3>
+                <div class="organiser-list">
+                    <p><strong>Mr. B. Mohammed Zaid</strong> <span>(Oganizers)</span></p>
+                    <p><strong>Mr. K. A. Thaha Nabeel</strong> <span>(Oganizers)</span></p>
+                    <p><strong>Mr. H. Mohammed Aakif</strong> <span>(Joint Co-Oganizers)</span></p>
+                </div>
+            </div>
+
+            <!-- Location Section -->
+            <div class="footer-section location">
+                <h3><i class="fas fa-map-marker-alt"></i> Venue Details</h3>
+                <p class="venue-name">Islamiah College (Autonomous)</p>
+                <p>New Town, Vaniyambadi - 635 752</p>
+                <p class="venue-dept">Department of Computer Science</p>
+                <p class="venue-lab">Main Computer Lab (CS Block)</p>
+            </div>
+
+            <!-- Action Section -->
+            <div class="footer-section actions">
+                <h3><i class="fas fa-link"></i> Quick Access</h3>
+                <!-- Footer Rules Button -->
+                <button id="footerRulesBtn" class="footer-rules-btn">
+                    <span class="btn-icon"><i class="fas fa-scroll"></i></span>
+                    <span class="btn-text">Review Rules</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 ISLAMIAH COLLEGE | Department of Computer Science & Applications</p>
+            <div class="footer-decoration"></div>
+        </div>
+    </footer>
+
+    <!-- Audio Elements -->
+    <audio id="alertSound" preload="auto">
+        <source src="analog-timer-74998.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="timeUpSound" preload="auto">
+        <source src="buzzer-or-wrong-answer-20582.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="wrongSound" preload="auto">
+        <source src="wrong-83488.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Rules Modal -->
+    <div class="modal-overlay" id="rulesModalOverlay">
+        <div class="rules-modal">
+            <button class="close-modal" id="closeRulesBtn" aria-label="Close Rules">&times;</button>
+            <div class="rules-header">
+                <h2><i class="fas fa-gavel"></i> Event Protocols</h2>
+                <div class="rules-decoration"></div>
+            </div>
+            <div class="rules-content">
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <div class="rule-text">
+                        <h3>Round 1: Visual IQ</h3>
+                        <p>Reveal tiles to identify logos. Faster answers earn more points.</p>
+                    </div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-id-card-alt"></i></div>
+                    <div class="rule-text">
+                        <h3>Round 2: Tech Titans</h3>
+                        <p>Identify CEOs & Brands. No options provided. 15s timer with auto-reveal.</p>
+                    </div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-history"></i></div>
+                    <div class="rule-text">
+                        <h3>Round 3: Tech History</h3>
+                        <p>Mixed format: Logo IDs (Image) & History (Text). Different logic for each.</p>
+                    </div>
+                </div>
+
+                <div class="rules-note">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Integrity is paramount. Any external assistance will result in immediate disqualification.</p>
+                </div>
+            </div>
+            <div class="rules-footer">
+                <button class="action-btn" id="ackRulesBtn">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
