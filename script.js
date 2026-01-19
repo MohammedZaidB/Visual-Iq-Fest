@@ -73,11 +73,11 @@ const QUESTIONS = {
         // Using 'college_logo.png' as default/placeholder for visual testing as requested
         {
             id: 1,
-            question: "Identify this Brand",
-            image: "college_logo.png",
+            question: "Identify this Logo",
+            image: "logo/React-icon.svg.png",
             choices: ["Oracle", "Sun Microsystems", "IBM", "Solaris"],
             correctIndex: 1,
-            explanation: "The Sun Microsystems logo is a famous ambigram featuring the word 'sun' in four directions."
+            explanation: "React js"
         },
         {
             id: 2,
@@ -224,10 +224,10 @@ const QUESTIONS = {
         {
             id: 1,
             question: "Who is the CEO of this company?",
-            image: "college_logo.png", // Replace with Google/Sundar Pichai image
+            image: "logo/Nvidia_logo.svg.png", // Replace with Google/Sundar Pichai image
             choices: ["Satya Nadella", "Sundar Pichai", "Tim Cook", "Mark Zuckerberg"],
             correctIndex: 1,
-            explanation: "Sundar Pichai is the CEO of Alphabet Inc. and its subsidiary Google."
+            explanation: "Jensen Huang is the CEO of NVIDIA."
         },
         {
             id: 2,
@@ -283,10 +283,10 @@ const QUESTIONS = {
         {
             id: 1,
             question: "Who developed the Python programming language?",
-            image: "college_logo.png", // Text question, but keeping placeholder if needed or null
+            image: "logo/Python-logo-.png", // Text question, but keeping placeholder if needed or null
             choices: ["Guido van Rossum", "James Gosling", "Dennis Ritchie", "Bjarne Stroustrup"],
             correctIndex: 0,
-            explanation: "Guido van Rossum created Python and released it in 1991."
+            explanation: "Guido van Rossum created Python."
         },
         {
             id: 2,
