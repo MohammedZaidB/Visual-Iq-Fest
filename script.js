@@ -414,11 +414,11 @@ const QUESTIONS = {
         },
         {
             id: 3,
-            question: "Who is the CEO of this company?",
+            question: "Who is the first CEO of this company?",
             image: "round2/google.png", // Replace with Amazon/Bezos image
             choices: ["Jeff Bezos", "Elon Musk", "Bill Gates", "Larry Page"],
             correctIndex: 0,
-            explanation: "Sunder Pichai is the CEO of Google."
+            explanation: "Larry Page is the first CEO of Google."
         },
         {
             id: 4,
@@ -441,7 +441,7 @@ const QUESTIONS = {
         { id: 7, question: "Who is the Founder of this company?", image: "round2/wipro.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Azim Premji is the visionary Founder Chairman of Wipro" },
         { id: 8, question: "Who is the Founder of tata", image: "round2/tata.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Jamsetji Nusserwanji Tata" },
         { id: 9, question: "Who is the Founder of Microsoft", image: "round2/microsoft.avif", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Bill Gates and Paul Allen" },
-        { id: 10, question: "Who is the CEO of this company?", image: "round2/youtube.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Neal Mohan" },
+        { id: 10, question: "Who was the first youTuber?", image: "round2/youtube.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Jawed Karim" },
         { id: 11, question: "Identify the Company led by this CEO?", image: "round2/Neal_Mohan,_in_New_York_City_on_September_19,_2023_-_53199232941_(cropped).jpg", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "YouTube" },
         { id: 12, question: "Who is the Founder of this company?", image: "round2/infosys.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "N. R. Narayana Murthy is the founder of Infosys" },
         { id: 13, question: "Who is the CEO of this company?", image: "round2/gpt.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: " Sam Altman" },
