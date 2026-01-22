@@ -292,7 +292,7 @@ button {
 }
 
 .rules-header {
-    background: linear-gradient(to right, rgba(245, 158, 11, 0.1), transparent);
+    background: linear-gradient(to right, rgba(211, 209, 205, 0.911), transparent);
     padding: 1.5rem 2rem;
     border-bottom: 1px solid var(--border);
     position: relative;
@@ -341,7 +341,7 @@ button {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(244, 240, 240, 0.861);
     padding: 1rem;
     border-radius: var(--radius-md);
     border: 1px solid transparent;
@@ -350,7 +350,7 @@ button {
 
 .rule-item:hover {
     border-color: var(--secondary);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(244, 238, 238, 0.909);
     transform: translateX(5px);
 }
 
@@ -379,17 +379,7 @@ button {
     line-height: 1.5;
 }
 
-.rules-note {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: rgba(239, 68, 68, 0.1);
-    /* Error tint */
-    border-left: 3px solid var(--error);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
+
 
 .rules-note i {
     color: var(--error);
@@ -407,7 +397,7 @@ button {
     border-top: 1px solid var(--border);
     display: flex;
     justify-content: flex-end;
-    background: rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, rgba(211, 209, 205, 0.911), transparent);
 }
 
 @keyframes zoomIn {
@@ -1314,7 +1304,7 @@ button {
 
 .footer-bottom p {
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    
     letter-spacing: 0.05em;
 }
 

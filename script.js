@@ -43,7 +43,7 @@ const ROUND_TIMERS = {
 const QUESTION_COUNTS = {
     1: 40, // Round 1: 40 questions
     2: 20, // Round 2: 20 questions
-    3: 15  // Round 3: 15 questions
+    3: 10  // Round 3: 10 questions
 };
 
 // Round Information
@@ -61,7 +61,7 @@ const ROUND_INFO = {
     3: {
         name: "Tech History & Logos",
         description: "Programming history, launch dates, and company logos.",
-        totalQuestions: 15
+        totalQuestions: 10
     }
 };
 
@@ -74,149 +74,324 @@ const QUESTIONS = {
         {
             id: 1,
             question: "Identify this Logo",
-            image: "logo/React-icon.svg.png",
+            image: "round1/React-icon.svg.png",
             choices: ["Oracle", "Sun Microsystems", "IBM", "Solaris"],
             correctIndex: 1,
             explanation: "React js"
         },
         {
             id: 2,
-            question: "Identify this Brand",
-            image: "college_logo.png",
+            question: "Identify this Logo",
+            image: "round1/swift.jpg",
             choices: ["Linksys", "Juniper", "Cisco", "Netgear"],
             correctIndex: 2,
-            explanation: "The vertical lines represent the Golden Gate Bridge."
+            explanation: "Swift programming language."
         },
         {
             id: 3,
-            question: "Identify this Brand",
-            image: "college_logo.png",
+            question: "Identify this Logo",
+            image: "round1/dart.jpg",
             choices: ["Sony", "Vaio", "Lenovo", "Asus"],
             correctIndex: 1,
-            explanation: "The 'VA' represents an analog wave, and 'IO' represents digital binary code."
+            explanation: "Dart programming language."
         },
         {
             id: 4,
-            question: "Who is this Mascot?",
-            image: "college_logo.png",
+            question: "Identify this Logo",
+            image: "round1/NVDA.png",
             choices: ["BSD Daemon", "Tux (Linux)", "GNU", "Wilber (GIMP)"],
             correctIndex: 1,
-            explanation: "Tux the Penguin is the official mascot of the Linux kernel."
+            explanation: "Nvidia ."
         },
         {
             id: 5,
-            question: "Identify this Platform",
-            image: "college_logo.png",
+            question: "Identify this Logo",
+            image: "round1/typescript.png",
             choices: ["GitLab", "Bitbucket", "GitHub", "SourceForge"],
             correctIndex: 2,
-            explanation: "The 'Octocat' is the mascot of GitHub."
+            explanation: "TypeScript."
         },
         {
             id: 6,
-            question: "Identify this OS Logo",
-            image: "college_logo.png",
+            question: "Identify this Logo",
+            image: "round1/scala.png",
             choices: ["Debian", "Ubuntu", "Red Hat", "Fedora"],
             correctIndex: 1,
-            explanation: "The Ubuntu logo is called the 'Circle of Friends'."
+            explanation: "Scala."
         },
         {
             id: 7,
-            question: "Identify this Hardware Brand",
-            image: "college_logo.png",
+            question: "Identify this Logo",
+            image: "round1/python-logo-.png",
             choices: ["Alienware", "Logitech", "Corsair", "Razer"],
             correctIndex: 3,
-            explanation: "The triple-headed snake is the iconic logo of Razer."
+            explanation: "Python ."
         },
         {
             id: 8,
-            question: "Identify this Symbol",
-            image: "college_logo.png",
+            question: "Identify this Logo",
+            image: "round1/Rubylogo.png",
             choices: ["Wi-Fi", "NFC", "Bluetooth", "Zigbee"],
             correctIndex: 2,
-            explanation: "The symbol combines the Nordic runes for H and B."
+            explanation: "Ruby."
         },
         {
             id: 9,
-            question: "Identify this Brand",
-            image: "college_logo.png",
+            question: "Identify this Logo",
+            image: "round1/MatlabLogo.png",
             choices: ["AMD", "Intel", "Nvidia", "Qualcomm"],
             correctIndex: 2,
-            explanation: "The stylized 'eye' (or spiral) is the logo for Nvidia."
+            explanation: "MatLab."
         },
         {
             id: 10,
-            question: "Identify this Mascot",
-            image: "college_logo.png",
+            question: "Identify this Software",
+            image: "round1/linux.jpg",
             choices: ["Go Gopher", "Python Snake", "Java Duke", "Rust Crab"],
             correctIndex: 2,
-            explanation: "Duke is the interactive mascot for the Java programming language."
+            explanation: "Linux."
         },
         {
             id: 11,
-            question: "Identify this Software",
-            image: "college_logo.png",
+            question: "Identify this Logo",
+            image: "round1/java.png",
             choices: ["Winamp", "VLC Media Player", "Windows Media Player", "QuickTime"],
             correctIndex: 1,
-            explanation: "The orange traffic cone is the icon of VLC Media Player."
+            explanation: "Java."
         },
         {
             id: 12,
             question: "Identify this Brand",
-            image: "college_logo.png",
+            image: "round1/Haskell-Logo.svg.png",
             choices: ["Predator", "ROG", "Alienware", "Omen"],
             correctIndex: 2,
-            explanation: "The extraterrestrial head is the logo of Alienware."
+            explanation: "Haskell."
         },
         {
             id: 13,
             question: "Identify this App",
-            image: "college_logo.png",
+            image: "round1/Signal-Logo.svg",
             choices: ["WhatsApp", "Snapchat", "Telegram", "Signal"],
             correctIndex: 1,
-            explanation: "Ghostface Chilah is the ghost in the Snapchat logo."
+            explanation: "Signal app."
         },
         {
             id: 14,
-            question: "Identify this Brand",
-            image: "college_logo.png",
+            question: "Identify this App",
+            image: "round1/dailyhunt.png",
             choices: ["Sega", "Nintendo", "Atari", "Commodore"],
             correctIndex: 2,
-            explanation: "The 'Fuji' logo is the symbol of Atari."
+            explanation: "Dailyhunt."
         },
         {
             id: 15,
-            question: "Identify this Symbol",
-            image: "college_logo.png",
+            question: "Identify this Logo",
+            image: "round1/html.png",
             choices: ["Ethernet", "HDMI", "USB", "Thunderbolt"],
             correctIndex: 2,
-            explanation: "The trident symbol represents USB."
+            explanation: "HTML."
         },
         // Questions 16-40 (Placeholders for User Expansion)
-        { id: 16, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q16" },
-        { id: 17, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q17" },
-        { id: 18, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q18" },
-        { id: 19, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q19" },
-        { id: 20, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q20" },
-        { id: 21, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q21" },
-        { id: 22, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q22" },
-        { id: 23, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q23" },
-        { id: 24, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q24" },
-        { id: 25, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q25" },
-        { id: 26, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q26" },
-        { id: 27, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q27" },
-        { id: 28, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q28" },
-        { id: 29, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q29" },
-        { id: 30, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q30" },
-        { id: 31, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q31" },
-        { id: 32, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q32" },
-        { id: 33, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q33" },
-        { id: 34, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q34" },
-        { id: 35, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q35" },
-        { id: 36, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q36" },
-        { id: 37, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q37" },
-        { id: 38, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q38" },
-        { id: 39, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q39" },
-        { id: 40, question: "Identify this Brand", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder for Q40" }
+        {
+            id: 16,
+            question: "Identify this Framework",
+            image: "round1/angular.png",
+            choices: ["React", "Vue", "Angular", "Svelte"],
+            correctIndex: 2,
+            explanation: "Angular."
+        },
+        {
+            id: 17,
+            question: "Identify this Language",
+            image: "round1/rust logo.png",
+            choices: ["Go", "Rust", "Ruby", "C#"],
+            correctIndex: 1,
+            explanation: "Rust programming language."
+        },
+        {
+            id: 18,
+            question: "Identify this App",
+            image: "round1/google sheet.png",
+            choices: ["Excel", "Google Sheets", "Numbers", "Calc"],
+            correctIndex: 1,
+            explanation: "Google Sheets."
+        },
+        {
+            id: 19,
+            question: "Identify this App",
+            image: "round1/slack.png",
+            choices: ["Discord", "Slack", "Teams", "Skype"],
+            correctIndex: 1,
+            explanation: "Slack."
+        },
+        {
+            id: 20,
+            question: "Identify this App",
+            image: "round1/zoom logo.png",
+            choices: ["Skype", "Zoom", "Meet", "Webex"],
+            correctIndex: 1,
+            explanation: "Zoom."
+        },
+        {
+            id: 21,
+            question: "Identify this Brand",
+            image: "round1/dropbox.png",
+            choices: ["Google Drive", "OneDrive", "Dropbox", "Box"],
+            correctIndex: 2,
+            explanation: "Dropbox."
+        },
+        {
+            id: 22,
+            question: "Identify this Brand",
+            image: "round1/pay pal.png",
+            choices: ["Stripe", "PayPal", "Square", "Visa"],
+            correctIndex: 1,
+            explanation: "PayPal."
+        },
+        {
+            id: 23,
+            question: "Identify this Brand",
+            image: "round1/tesla logo.png",
+            choices: ["Ford", "Tesla", "Toyota", "Rivian"],
+            correctIndex: 1,
+            explanation: "Tesla."
+        },
+        {
+            id: 24,
+            question: "Identify this Brand",
+            image: "round1/spacex.png",
+            choices: ["NASA", "Blue Origin", "SpaceX", "Virgin Galactic"],
+            correctIndex: 2,
+            explanation: "SpaceX."
+        },
+        {
+            id: 25,
+            question: "Identify this Brand",
+            image: "round1/playstation logo.png",
+            choices: ["Xbox", "Nintendo", "PlayStation", "Sega"],
+            correctIndex: 2,
+            explanation: "PlayStation."
+        },
+        {
+            id: 26,
+            question: "Identify this Brand",
+            image: "round1/intel-logo-3.webp",
+            choices: ["AMD", "Intel", "Nvidia", "Qualcomm"],
+            correctIndex: 1,
+            explanation: "Intel."
+        },
+        {
+            id: 27,
+            question: "Identify this Brand",
+            image: "round1/canon.png",
+            choices: ["Nikon", "Sony", "Canon", "Fuji"],
+            correctIndex: 2,
+            explanation: "Canon."
+        },
+        {
+            id: 28,
+            question: "Identify this Brand",
+            image: "round1/nokia logo.png",
+            choices: ["Motorola", "Nokia", "Samsung", "HTC"],
+            correctIndex: 1,
+            explanation: "Nokia."
+        },
+        {
+            id: 29,
+            question: "Identify this Brand",
+            image: "round1/samsung logo.jpg",
+            choices: ["LG", "Samsung", "Sony", "Panasonic"],
+            correctIndex: 1,
+            explanation: "Samsung."
+        },
+        {
+            id: 30,
+            question: "Identify this Brand",
+            image: "round1/Lenovo logo.jpg",
+            choices: ["Dell", "HP", "Lenovo", "Asus"],
+            correctIndex: 2,
+            explanation: "Lenovo."
+        },
+        {
+            id: 31,
+            question: "Identify this Brand",
+            image: "round1/Cisco-logo.jpg",
+            choices: ["Juniper", "Cisco", "Aruba", "Huawei"],
+            correctIndex: 1,
+            explanation: "Cisco."
+        },
+        {
+            id: 32,
+            question: "Identify this Brand",
+            image: "round1/Oracle-Logo.jpg",
+            choices: ["SAP", "Oracle", "IBM", "Microsoft"],
+            correctIndex: 1,
+            explanation: "Oracle."
+        },
+        {
+            id: 33,
+            question: "Identify this Brand",
+            image: "round1/salesforce logo.png",
+            choices: ["HubSpot", "Salesforce", "Zoho", "SAP"],
+            correctIndex: 1,
+            explanation: "Salesforce."
+        },
+        {
+            id: 34,
+            question: "Identify this Brand",
+            image: "round1/adobe logo.png",
+            choices: ["Autodesk", "Adobe", "Corel", "Serif"],
+            correctIndex: 1,
+            explanation: "Adobe."
+        },
+        {
+            id: 35,
+            question: "Identify this Brand",
+            image: "round1/microsoft logo.png",
+            choices: ["Apple", "Microsoft", "Google", "IBM"],
+            correctIndex: 1,
+            explanation: "Microsoft."
+        },
+        {
+            id: 36,
+            question: "Identify this Brand",
+            image: "round1/amazon logo.png",
+            choices: ["eBay", "Amazon", "Alibaba", "Walmart"],
+            correctIndex: 1,
+            explanation: "Amazon."
+        },
+        {
+            id: 37,
+            question: "Identify this Brand",
+            image: "round1/LinkedIn_icon.svg.png",
+            choices: ["Facebook", "Twitter", "LinkedIn", "Xing"],
+            correctIndex: 2,
+            explanation: "LinkedIn."
+        },
+        {
+            id: 38,
+            question: "Identify this Brand",
+            image: "round1/Wikipedia logo.jpg",
+            choices: ["WikiLeaks", "Wikipedia", "Wikivoyage", "Encyclopedia"],
+            correctIndex: 1,
+            explanation: "Wikipedia."
+        },
+        {
+            id: 39,
+            question: "Identify this App",
+            image: "round1/yt studio.png",
+            choices: ["YouTube", "YouTube Studio", "Vim", "Twitch"],
+            correctIndex: 1,
+            explanation: "YouTube Studio."
+        },
+        {
+            id: 40,
+            question: "Identify this Brand",
+            image: "round1/Firefox_logo,_2019.svg.png",
+            choices: ["Chrome", "Edge", "Firefox", "Opera"],
+            correctIndex: 2,
+            explanation: "Mozilla Firefox."
+        }
     ],
     2: [
         // Round 2: Tech Titans (CEO & Brand Identification)
@@ -224,7 +399,7 @@ const QUESTIONS = {
         {
             id: 1,
             question: "Who is the CEO of this company?",
-            image: "logo/Nvidia_logo.svg.png", // Replace with Google/Sundar Pichai image
+            image: "round2/Nvidia_logo.svg.png", // Replace with Google/Sundar Pichai image
             choices: ["Satya Nadella", "Sundar Pichai", "Tim Cook", "Mark Zuckerberg"],
             correctIndex: 1,
             explanation: "Jensen Huang is the CEO of NVIDIA."
@@ -232,140 +407,177 @@ const QUESTIONS = {
         {
             id: 2,
             question: "Identify the Company led by this CEO",
-            image: "college_logo.png", // Replace with Satya Nadella image
+            image: "round2/microsoft ceo.jpg", // Replace with Satya Nadella image
             choices: ["Oracle", "Microsoft", "Salesforce", "IBM"],
             correctIndex: 1,
-            explanation: "Satya Nadella has been the CAO of Microsoft since 2014."
+            explanation: "Satya Nadella has been the CEO of Microsoft since 2014."
         },
         {
             id: 3,
-            question: "Who founded this company?",
-            image: "college_logo.png", // Replace with Amazon/Bezos image
+            question: "Who is the CEO of this company?",
+            image: "round2/google.png", // Replace with Amazon/Bezos image
             choices: ["Jeff Bezos", "Elon Musk", "Bill Gates", "Larry Page"],
             correctIndex: 0,
-            explanation: "Jeff Bezos founded Amazon in 1994."
+            explanation: "Sunder Pichai is the CEO of Google."
         },
         {
             id: 4,
-            question: "Identify this Tech Leader",
-            image: "college_logo.png", // Replace with Lisa Su image
+            question: "Who is the Founder of Zoho?",
+            image: "round2/zoho.png", // Replace with Lisa Su image
             choices: ["Lisa Su", "Jensen Huang", "Ginni Rometty", "Sheryl Sandberg"],
             correctIndex: 0,
-            explanation: "Lisa Su is the CEO of AMD (Advanced Micro Devices)."
+            explanation: "Zoho Corporation was founded by Sridhar Vembu."
         },
         {
             id: 5,
-            question: "Which company is this?",
-            image: "college_logo.png", // Replace with SpaceX/Tesla logo
+            question: "Who is the CEO of this company?",
+            image: "round2/apple.logo.png", // Replace with SpaceX/Tesla logo
             choices: ["SpaceX", "Blue Origin", "Virgin Galactic", "Boeing"],
             correctIndex: 0,
-            explanation: "SpaceX was founded by Elon Musk."
+            explanation: "Tim Cook."
         },
         // ... Placeholder for remaining 15 questions ...
-        { id: 6, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 7, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 8, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 9, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 10, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 11, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 12, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 13, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 14, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 15, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 16, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 17, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 18, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 19, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" },
-        { id: 20, question: "Identify this CEO", image: "college_logo.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Placeholder" }
+        { id: 6, question: "Who is the CEO of this company?", image: "round2/Adobe.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Shantanu Narayen" },
+        { id: 7, question: "Who is the Founder of this company?", image: "round2/wipro.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Azim Premji is the visionary Founder Chairman of Wipro" },
+        { id: 8, question: "Who is the Founder of tata", image: "round2/tata.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Jamsetji Nusserwanji Tata" },
+        { id: 9, question: "Who is the Founder of Microsoft", image: "round2/microsoft.avif", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Bill Gates and Paul Allen" },
+        { id: 10, question: "Who is the CEO of this company?", image: "round2/youtube.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Neal Mohan" },
+        { id: 11, question: "Identify the Company led by this CEO?", image: "round2/Neal_Mohan,_in_New_York_City_on_September_19,_2023_-_53199232941_(cropped).jpg", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "YouTube" },
+        { id: 12, question: "Who is the Founder of this company?", image: "round2/infosys.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "N. R. Narayana Murthy is the founder of Infosys" },
+        { id: 13, question: "Who is the CEO of this company?", image: "round2/gpt.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: " Sam Altman" },
+        { id: 14, question: "Who is the CEO of this company?", image: "round2/hcl.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "C. Vijayakumar" },
+        {
+            id: 15,
+            question: "Identify this CEO",
+            image: "round2/ibm ceo.webp",
+            choices: ["Arvind Krishna", "Shantanu Narayen", "Neal Mohan", "Sundar Pichai"],
+            correctIndex: 0,
+            explanation: "CEO of IBM is Arvind Krishna."
+        },
+        {
+            id: 16,
+            question: "Identify this Tech Leader",
+            image: "round1/nvidia ceo.png",
+            choices: ["Jensen Huang", "Lisa Su", "Sundar Pichai", "Satya Nadella"],
+            correctIndex: 0,
+            explanation: "Jensen Huang is the CEO of Nvidia."
+        },
+        {
+            id: 17,
+            question: "Which Group owns this company?",
+            image: "round2/tcs logo.jpg",
+            choices: ["Reliance", "Tata Group", "Adani Group", "Infosys"],
+            correctIndex: 1,
+            explanation: "TCS is part of the Tata Group."
+        },
+        {
+            id: 18,
+            question: "What are major companies owned by this guy?",
+            image: "round2/elon.jpg",
+            choices: ["Jeff Bezos", "Elon Musk", "Richard Branson", "Peter Beck"],
+            correctIndex: 1,
+            explanation: "Tesla and SpaceX."
+        },
+        {
+            id: 19,
+            question: "Who is the CEO of Salesforce?",
+            image: "round1/salesforce logo.png",
+            choices: ["Marc Benioff", "Larry Ellison", "Satya Nadella", "Sundar Pichai"],
+            correctIndex: 0,
+            explanation: "Marc Benioff is the Chair and CEO of Salesforce."
+        },
+        {
+            id: 20,
+            question: "Who founded Oracle?",
+            image: "round1/Oracle-Logo.jpg",
+            choices: ["Larry Page", "Larry Ellison", "Sergey Brin", "Steve Ballmer"],
+            correctIndex: 1,
+            explanation: "Larry Ellison co-founded Oracle."
+        }
     ],
     3: [
         // Round 3: Tech History & Logos (Mixed)
         {
             id: 1,
-            question: "Who developed the Python programming language?",
-            image: "logo/Python-logo-.png", // Text question, but keeping placeholder if needed or null
+            question: "which company tagline is Don’t Be Evil?",
+            image: "round2/google.png", // Text question, but keeping placeholder if needed or null
             choices: ["Guido van Rossum", "James Gosling", "Dennis Ritchie", "Bjarne Stroustrup"],
             correctIndex: 0,
-            explanation: "Guido van Rossum created Python."
+            explanation: "Google's tagline is Don't Be Evil."
         },
         {
             id: 2,
-            question: "Identify this Programming Language Logo",
-            image: "college_logo.png", // Replace with Python/Java logo
+            question: "Which company tagline is Think Different?",
+            image: "round2/apple.logo.png", // Replace with Python/Java logo
             choices: ["Python", "Java", "C++", "JavaScript"],
             correctIndex: 0,
-            explanation: "This is the official logo of the Python programming language."
+            explanation: "Apple's tagline is Think Different."
         },
         {
             id: 3,
-            question: "When was the first version of Java released?",
-            image: null, // Text only
+            question: "which company tagline is move fast and break things?",
+            image: "round3/meta logo.png", // Text only
             choices: ["1991", "1995", "1998", "2000"],
             correctIndex: 1,
-            explanation: "Java 1.0 was officially released by Sun Microsystems in 1995."
+            explanation: "Meta (formerly Facebook) has the tagline 'Move Fast and Break Things'."
         },
         {
             id: 4,
-            question: "Identify this Tech Company Logo",
-            image: "college_logo.png", // Replace with Adobe/Microsoft logo
+            question: "which company tagline is I’m Lovin’ It",
+            image: "round3/McDonald's.jpg", // Replace with Adobe/Microsoft logo
             choices: ["Adobe", "Microsoft", "Salesforce", "Oracle"],
             correctIndex: 1,
-            explanation: "This is the logo of Microsoft."
+            explanation: "McDonald's tagline is I'm Lovin' It."
         },
         {
             id: 5,
-            question: "Who created C++?",
-            image: null,
+            question: "Which company tagline is The Ultimate Driving Machine ",
+            image: "round3/bmw.jpg",
             choices: ["Ken Thompson", "Bjarne Stroustrup", "Brian Kernighan", "Linus Torvalds"],
             correctIndex: 1,
-            explanation: "Bjarne Stroustrup developed C++ at Bell Labs."
+            explanation: "BMW's tagline is The Ultimate Driving Machine."
         },
         {
             id: 6,
-            question: "Identify this Browser Logo",
-            image: "college_logo.png",
+            question: "which company tagline is The browser that respects your privacy",
+            image: "round1/Firefox_logo,_2019.svg.png",
             choices: ["Chrome", "Firefox", "Edge", "Safari"],
             correctIndex: 1,
-            explanation: "This is the logo for Mozilla Firefox."
+            explanation: "The browser that respects your privacy is Firefox."
         },
         {
             id: 7,
-            question: "In which year was Facebook founded?",
-            image: null,
+            question: "Which company tagline is Work Hard, Have Fun, Make History",
+            image: "round1/amazon logo.png",
             choices: ["2002", "2004", "2006", "2008"],
             correctIndex: 1,
-            explanation: "Facebook was founded in 2004 by Mark Zuckerberg and details."
+            explanation: "Amazon's tagline is Work Hard, Have Fun, Make History."
         },
         {
             id: 8,
-            question: "Identify this Database Logo",
-            image: "college_logo.png",
+            question: "Which company tagline is Connecting People",
+            image: "round1/nokia logo.png",
             choices: ["MySQL", "PostgreSQL", "MongoDB", "Redis"],
             correctIndex: 2,
-            explanation: "This is the logo for MongoDB."
+            explanation: "Nokia's tagline is Connecting People."
         },
         {
             id: 9,
-            question: "Who is known as the father of the World Wide Web?",
-            image: null,
+            question: "Which company tagline is Just Do It",
+            image: "round3/nike.png",
             choices: ["Tim Berners-Lee", "Vint Cerf", "Marc Andreessen", "Robert Kahn"],
             correctIndex: 0,
-            explanation: "Tim Berners-Lee invented the World Wide Web in 1989."
+            explanation: "Nike's tagline is Just Do It."
         },
         {
             id: 10,
-            question: "Identify this Operating System",
-            image: "college_logo.png",
+            question: "Which company tagline is Nothing is Impossible",
+            image: "round3/adidas.png",
             choices: ["Android", "iOS", "Linux", "Windows"],
             correctIndex: 0,
-            explanation: "The robot mascot represents the Android operating system."
+            explanation: "Adidas's tagline is Nothing is Impossible."
         },
-        // Placeholders for 11-15
-        { id: 11, question: "Who founded Apple?", image: null, choices: ["Steve Jobs", "Bill Gates", "Jeff Bezos", "Elon Musk"], correctIndex: 0, explanation: "Steve Jobs co-founded Apple." },
-        { id: 12, question: "Identify this Cloud Service", image: "college_logo.png", choices: ["AWS", "Azure", "GCP", "Heroku"], correctIndex: 0, explanation: "AWS Logo." },
-        { id: 13, question: "When was Google founded?", image: null, choices: ["1996", "1998", "2000", "2002"], correctIndex: 1, explanation: "Google was founded in 1998." },
-        { id: 14, question: "Identify this Creative Tool", image: "college_logo.png", choices: ["Photoshop", "Figma", "Sketch", "Canva"], correctIndex: 1, explanation: "Figma Logo." },
-        { id: 15, question: "Who created Linux?", image: null, choices: ["Linus Torvalds", "Richard Stallman", "Ken Thompson", "Dennis Ritchie"], correctIndex: 0, explanation: "Linus Torvalds created the Linux kernel." }
+
     ]
 };
 
@@ -659,21 +871,22 @@ function openQuestion(index) {
         // setupChoices(questionData); // Removed for Round 2
     }
     // ROUND 3: MIXED (Text + Optional Image)
+    // ROUND 3: MIXED (Text + Optional Image)
     else {
         if (questionText) {
             questionText.style.display = 'block';
             questionText.textContent = questionData.question;
         }
 
-        // Show image if available
-        if (questionData.image && puzzleContainer && puzzleImage) {
-            puzzleContainer.style.display = 'block';
-            puzzleImage.src = questionData.image;
-            // IMAGE QUESTION: HIDE CHOICES
-            if (choicesContainer) choicesContainer.style.display = 'none';
-        } else {
-            // TEXT QUESTION: SHOW CHOICES
-            setupChoices(questionData);
+        // HIDE CHOICES for Round 3 (Tagline -> Logo Reveal)
+        if (choicesContainer) choicesContainer.style.display = 'none';
+
+        // HIDE Image Initially (Reveal on Result)
+        if (puzzleContainer) {
+            puzzleContainer.style.display = 'none';
+            if (questionData.image && puzzleImage) {
+                puzzleImage.src = questionData.image;
+            }
         }
     }
 
@@ -782,16 +995,8 @@ function startTimer() {
                 // Round 2: Auto-Reveal Answer
                 showRound2Result();
             } else if (currentRound === 3) {
-                // Round 3 Logic Check
-                const hasImage = choicesContainer && choicesContainer.style.display === 'none';
-                if (hasImage) {
-                    // Image Question -> Auto Reveal
-                    showRound2Result();
-                } else {
-                    // Text Question -> Time Up Fail
-                    if (timeUpSound) timeUpSound.play().catch(e => console.log("Time-up sound play failed:", e));
-                    handleTimeout();
-                }
+                // Round 3: Time Up -> Show Logo (Auto Reveal)
+                showRound3Result();
             }
         }
     }, 1000);
@@ -898,6 +1103,57 @@ function showRound2Result() {
     }, 5000);
 }
 
+function showRound3Result() {
+    isAnswerSelected = true; // Stop any interactions
+
+    // Get Data
+    let questionData;
+    if (QUESTIONS[currentRound] && QUESTIONS[currentRound][currentQuestionIndex % QUESTIONS[currentRound].length]) {
+        questionData = QUESTIONS[currentRound][currentQuestionIndex % QUESTIONS[currentRound].length];
+    } else {
+        questionData = getDefaultQuestion(currentQuestionIndex, currentRound);
+    }
+
+    // Mark as "Answered"
+    gameState[currentRound][currentQuestionIndex] = true;
+
+    // REVEAL LOGO if exists
+    if (questionData.image && puzzleContainer && puzzleImage) {
+        puzzleContainer.style.display = 'block';
+        puzzleImage.src = questionData.image;
+    }
+
+    // UI Updates
+    if (resultIcon) {
+        resultIcon.textContent = '💡';
+        resultIcon.style.color = 'var(--accent)';
+    }
+    if (resultMessage) resultMessage.textContent = 'The Company Is...';
+
+    // Show Answer
+    const correctChoice = questionData.choices[questionData.correctIndex];
+    if (correctAnswer) {
+        correctAnswer.textContent = correctChoice;
+        correctAnswer.style.fontSize = "2rem";
+        correctAnswer.style.color = "var(--text-main)";
+    }
+
+    if (explanationBox) {
+        explanationBox.textContent = questionData.explanation;
+        explanationBox.style.display = 'block';
+    }
+
+    if (resultContainer) resultContainer.style.display = 'block';
+
+    // Auto-close after delay
+    setTimeout(() => {
+        if (questionModal) questionModal.classList.remove('active');
+        updateProgress();
+        updateNumberGrid();
+        checkRoundCompletion();
+    }, 5000);
+}
+
 function selectAnswer(choiceIndex) {
     if (isAnswerSelected) return;
 
@@ -981,6 +1237,12 @@ function showResult(isCorrect, questionData, selectedIndex) {
 
     // Show result
     if (resultContainer) resultContainer.style.display = 'block';
+
+    // Round 3: Reveal Image on Result if exists
+    if (currentRound === 3 && questionData.image && puzzleContainer && puzzleImage) {
+        puzzleContainer.style.display = 'block';
+        puzzleImage.src = questionData.image;
+    }
 
     // Auto-close after delay
     setTimeout(() => {
