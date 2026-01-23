@@ -3,7 +3,84 @@
 // Computer Science Department
 // ============================================
 
-// Theme Toggle Logic
+// ============================================
+// LOGIN AUTHENTICATION
+// ============================================
+
+const VALID_EMAIL = "admin@visualiq.com";
+const VALID_PASSWORD = "31123U18085";
+
+function initLogin() {
+    const loginScreen = document.getElementById('loginScreen');
+    const mainContent = document.getElementById('mainContent');
+    const loginBtn = document.getElementById('loginBtn');
+    const loginEmail = document.getElementById('loginEmail');
+    const loginPassword = document.getElementById('loginPassword');
+    const loginError = document.getElementById('loginError');
+
+    // Check if already logged in
+    const isLoggedIn = sessionStorage.getItem('visualiq_logged_in');
+    if (isLoggedIn === 'true') {
+        showMainContent();
+        return;
+    }
+
+    // Login button click handler
+    if (loginBtn) {
+        loginBtn.addEventListener('click', handleLogin);
+    }
+
+    // Enter key support
+    if (loginEmail) {
+        loginEmail.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleLogin();
+        });
+    }
+    if (loginPassword) {
+        loginPassword.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleLogin();
+        });
+    }
+
+    function handleLogin() {
+        const email = loginEmail.value.trim();
+        const password = loginPassword.value;
+
+        if (email === VALID_EMAIL && password === VALID_PASSWORD) {
+            // Success
+            sessionStorage.setItem('visualiq_logged_in', 'true');
+            loginError.classList.remove('active');
+            showMainContent();
+        } else {
+            // Error
+            loginError.textContent = 'Invalid email or password. Please try again.';
+            loginError.classList.add('active');
+
+            // Shake animation
+            setTimeout(() => {
+                loginError.classList.remove('active');
+            }, 3000);
+        }
+    }
+
+    function showMainContent() {
+        if (loginScreen) {
+            loginScreen.style.animation = 'fadeOut 0.4s ease';
+            setTimeout(() => {
+                loginScreen.style.display = 'none';
+                if (mainContent) {
+                    mainContent.style.display = 'block';
+                    mainContent.style.animation = 'fadeIn 0.6s ease';
+                }
+            }, 400);
+        }
+    }
+}
+
+// ============================================
+// THEME TOGGLE
+// ============================================
+
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
 
@@ -594,6 +671,53 @@ let timeLeft = DEFAULT_TIMER;
 let isAnswerSelected = false;
 let autoRevealInterval = null;
 
+// ============================================
+// LOCAL STORAGE FUNCTIONS
+// ============================================
+
+function saveGameState() {
+    try {
+        const stateToSave = {
+            currentRound: currentRound,
+            currentQuestionIndex: currentQuestionIndex,
+            gameState: gameState,
+            timestamp: new Date().getTime()
+        };
+        localStorage.setItem('visualiq_game_state', JSON.stringify(stateToSave));
+    } catch (e) {
+        console.error('Failed to save game state:', e);
+    }
+}
+
+function loadGameState() {
+    try {
+        const savedState = localStorage.getItem('visualiq_game_state');
+        if (savedState) {
+            const parsed = JSON.parse(savedState);
+            currentRound = parsed.currentRound || 1;
+            currentQuestionIndex = parsed.currentQuestionIndex || 0;
+
+            // Restore game state
+            if (parsed.gameState) {
+                gameState = parsed.gameState;
+            }
+
+            return true;
+        }
+    } catch (e) {
+        console.error('Failed to load game state:', e);
+    }
+    return false;
+}
+
+function clearGameState() {
+    try {
+        localStorage.removeItem('visualiq_game_state');
+    } catch (e) {
+        console.error('Failed to clear game state:', e);
+    }
+}
+
 // DOM Elements
 const startScreen = document.getElementById('startScreen');
 const roundScreen = document.getElementById('roundScreen');
@@ -638,9 +762,36 @@ function init() {
     puzzleImage = document.getElementById('puzzleImage');
     puzzleGrid = document.getElementById('puzzleGrid');
 
+    // Initialize Login
+    initLogin();
+
     // Initialize Theme
     initTheme();
+
+    // Load saved game state from local storage
+    const hasState = loadGameState();
+
     setupEventListeners();
+
+    // If there's a saved state and user was in a round, restore the round screen
+    if (hasState && currentRound > 0) {
+        // Check if any questions have been attempted in the current round
+        const attempted = gameState[currentRound].filter(state => state !== null).length;
+        if (attempted > 0) {
+            // Restore the round screen
+            const roundInfo = ROUND_INFO[currentRound];
+            if (roundTitle) roundTitle.textContent = `Round ${currentRound}: ${roundInfo.name}`;
+            if (startScreen) startScreen.style.display = 'none';
+            if (roundScreen) roundScreen.style.display = 'block';
+
+            const roundDesc = document.querySelector('.round-details-panel p');
+            if (roundDesc) roundDesc.textContent = roundInfo.description;
+
+            generateNumberGrid();
+            updateProgress();
+        }
+    }
+
 }
 
 function setupEventListeners() {
@@ -704,6 +855,26 @@ function setupEventListeners() {
         });
     }
 
+    // Clear Progress Button
+    const clearProgressBtn = document.getElementById('clearProgressBtn');
+    if (clearProgressBtn) {
+        clearProgressBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to clear all progress? This action cannot be undone.')) {
+                clearGameState();
+                // Reset game state in memory
+                gameState = {
+                    1: Array(QUESTION_COUNTS[1]).fill(null),
+                    2: Array(QUESTION_COUNTS[2]).fill(null),
+                    3: Array(QUESTION_COUNTS[3]).fill(null)
+                };
+                currentRound = 1;
+                currentQuestionIndex = 0;
+                // Reload page to reset UI
+                location.reload();
+            }
+        });
+    }
+
     // Keyboard support
     document.addEventListener('keydown', handleKeyDown);
 
@@ -748,6 +919,9 @@ function selectRound(roundNumber) {
 
     generateNumberGrid();
     updateProgress();
+
+    // Save state when round is selected
+    saveGameState();
 }
 
 function goToStartScreen() {
@@ -1025,6 +1199,9 @@ function showRound1Result() {
     // Mark as "Answered"
     gameState[currentRound][currentQuestionIndex] = true;
 
+    // Save state after answering
+    saveGameState();
+
     // Reveal Full Image
     if (puzzleGrid) puzzleGrid.innerHTML = '';
 
@@ -1072,6 +1249,9 @@ function showRound2Result() {
     // Mark as "Answered" (Success/Viewed)
     gameState[currentRound][currentQuestionIndex] = true;
 
+    // Save state after answering
+    saveGameState();
+
     // UI Updates
     if (resultIcon) {
         resultIcon.textContent = '👑'; // Tech King/Queen Icon
@@ -1116,6 +1296,9 @@ function showRound3Result() {
 
     // Mark as "Answered"
     gameState[currentRound][currentQuestionIndex] = true;
+
+    // Save state after answering
+    saveGameState();
 
     // REVEAL LOGO if exists
     if (questionData.image && puzzleContainer && puzzleImage) {
@@ -1177,6 +1360,9 @@ function selectAnswer(choiceIndex) {
 
     // Update game state
     gameState[currentRound][currentQuestionIndex] = isCorrect;
+
+    // Save state after answering
+    saveGameState();
 
     // Show result
     showResult(isCorrect, questionData, choiceIndex);
@@ -1264,6 +1450,9 @@ function closeQuestionModal() {
         // Let's mark as fail to be safe
         gameState[currentRound][currentQuestionIndex] = false;
 
+        // Save state after closing
+        saveGameState();
+
         if (wrongSound) wrongSound.play().catch(e => console.log("Wrong sound play failed:", e));
         updateProgress();
         updateNumberGrid();
@@ -1308,5 +1497,8 @@ function resetCurrentRound() {
         if (completionModal) completionModal.classList.remove('active');
         updateProgress();
         updateNumberGrid();
+
+        // Save state after reset
+        saveGameState();
     }
 }

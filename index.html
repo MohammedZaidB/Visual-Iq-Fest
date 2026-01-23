@@ -15,7 +15,36 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <img src="college_logo.png" alt="College Logo" class="login-logo">
+                <h1>Visual-IQ</h1>
+                <p class="login-subtitle">ISLAMIAH COLLEGE (AUTONOMOUS)</p>
+            </div>
+            <div class="login-form">
+                <div class="input-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" autocomplete="email">
+                </div>
+                <div class="input-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password"
+                        autocomplete="current-password">
+                </div>
+                <div id="loginError" class="login-error"></div>
+                <button id="loginBtn" class="login-btn">
+                    <span>Access Visual-IQ</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden Initially) -->
+    <div class="container" id="mainContent" style="display: none;">
+
         <!-- Header -->
         <header class="college-header">
             <div class="college-brand">
@@ -42,7 +71,7 @@
 
             <div class="event-title-container">
                 <!-- Replaced Text with Image -->
-                 <p class="hero-subtitle">Dream IT 2.0 2k25</p>
+                <p class="hero-subtitle">Dream IT 2.0 2k25</p>
                 <!-- <img src="LOGO VQ.jpeg" alt="Dream IT 2.0 2k25" class="event-title-img" id="eventTitleImage"> -->
                 <!-- Placeholder text if image fails or user hasn't added it yet -->
                 <p class="hero-main-title">
@@ -56,6 +85,10 @@
                     <i class="fas fa-scroll"></i>
                     <span>Read Event Protocols</span>
                     <div class="btn-glow"></div>
+                </button>
+                <button id="clearProgressBtn" class="clear-progress-btn" title="Clear all saved progress">
+                    <i class="fas fa-trash-alt"></i>
+                    <span>Clear Progress</span>
                 </button>
             </div>
         </section>
@@ -98,13 +131,13 @@
                         <div class="detail-item">
                             <i class="fas fa-question-circle detail-icon"></i>
                             <div>
-                                <div class="detail-value">15 Questions</div>
+                                <div class="detail-value">20 Questions</div>
                             </div>
                         </div>
                         <div class="detail-item">
                             <i class="fas fa-clock detail-icon"></i>
                             <div>
-                                <div class="detail-value">30 Seconds</div>
+                                <div class="detail-value">15 Seconds</div>
                                 <div class="detail-text">Per Question</div>
                             </div>
                         </div>
@@ -123,13 +156,13 @@
                         <div class="detail-item">
                             <i class="fas fa-question-circle detail-icon"></i>
                             <div>
-                                <div class="detail-value">15 Questions</div>
+                                <div class="detail-value">10 Questions</div>
                             </div>
                         </div>
                         <div class="detail-item">
                             <i class="fas fa-clock detail-icon"></i>
                             <div>
-                                <div class="detail-value">30 Seconds</div>
+                                <div class="detail-value">15 Seconds</div>
                                 <div class="detail-text">Per Question</div>
                             </div>
                         </div>
@@ -243,7 +276,7 @@
             <div class="footer-section organisers">
                 <h3><i class="fas fa-users-cog"></i> Event Organizers</h3>
                 <div class="organiser-list">
-                    <p><strong>Mr. B. Mohammed Zaid</strong> <span>(Oganizers)</span></p>
+                    <p><strong>Mr. Bangi Mohammed Zaid</strong> <span>(Oganizers)</span></p>
                     <p><strong>Mr. Sharif Hamdan </strong> <span>(Oganizers)</span></p>
                     <p><strong>Mr. H. Mohammed Aakif</strong> <span>(Joint Co-Oganizers)</span></p>
                 </div>
