@@ -19,7 +19,7 @@ function initLogin() {
     const loginError = document.getElementById('loginError');
 
     // Check if already logged in
-    const isLoggedIn = sessionStorage.getItem('visualiq_logged_in');
+    const isLoggedIn = localStorage.getItem('visualiq_logged_in');
     if (isLoggedIn === 'true') {
         showMainContent();
         return;
@@ -48,7 +48,7 @@ function initLogin() {
 
         if (email === VALID_EMAIL && password === VALID_PASSWORD) {
             // Success
-            sessionStorage.setItem('visualiq_logged_in', 'true');
+            localStorage.setItem('visualiq_logged_in', 'true');
             loginError.classList.remove('active');
             showMainContent();
         } else {
@@ -120,7 +120,7 @@ const ROUND_TIMERS = {
 const QUESTION_COUNTS = {
     1: 40, // Round 1: 40 questions
     2: 20, // Round 2: 20 questions
-    3: 10  // Round 3: 10 questions
+    3: 12  // Round 3: 12 questions
 };
 
 // Round Information
@@ -138,7 +138,7 @@ const ROUND_INFO = {
     3: {
         name: "Tech History & Logos",
         description: "Programming history, launch dates, and company logos.",
-        totalQuestions: 10
+        totalQuestions: 12
     }
 };
 
@@ -153,7 +153,6 @@ const QUESTIONS = {
             question: "Identify this Logo",
             image: "round1/React-icon.svg.png",
             choices: ["Oracle", "Sun Microsystems", "IBM", "Solaris"],
-            correctIndex: 1,
             explanation: "React js"
         },
         {
@@ -161,7 +160,6 @@ const QUESTIONS = {
             question: "Identify this Logo",
             image: "round1/swift.jpg",
             choices: ["Linksys", "Juniper", "Cisco", "Netgear"],
-            correctIndex: 2,
             explanation: "Swift programming language."
         },
         {
@@ -169,7 +167,6 @@ const QUESTIONS = {
             question: "Identify this Logo",
             image: "round1/dart.jpg",
             choices: ["Sony", "Vaio", "Lenovo", "Asus"],
-            correctIndex: 1,
             explanation: "Dart programming language."
         },
         {
@@ -177,7 +174,6 @@ const QUESTIONS = {
             question: "Identify this Logo",
             image: "round1/NVDA.png",
             choices: ["BSD Daemon", "Tux (Linux)", "GNU", "Wilber (GIMP)"],
-            correctIndex: 1,
             explanation: "Nvidia ."
         },
         {
@@ -185,7 +181,6 @@ const QUESTIONS = {
             question: "Identify this Logo",
             image: "round1/typescript.png",
             choices: ["GitLab", "Bitbucket", "GitHub", "SourceForge"],
-            correctIndex: 2,
             explanation: "TypeScript."
         },
         {
@@ -193,7 +188,6 @@ const QUESTIONS = {
             question: "Identify this Logo",
             image: "round1/scala.png",
             choices: ["Debian", "Ubuntu", "Red Hat", "Fedora"],
-            correctIndex: 1,
             explanation: "Scala."
         },
         {
@@ -201,7 +195,6 @@ const QUESTIONS = {
             question: "Identify this Logo",
             image: "round1/python-logo-.png",
             choices: ["Alienware", "Logitech", "Corsair", "Razer"],
-            correctIndex: 3,
             explanation: "Python ."
         },
         {
@@ -209,7 +202,6 @@ const QUESTIONS = {
             question: "Identify this Logo",
             image: "round1/Rubylogo.png",
             choices: ["Wi-Fi", "NFC", "Bluetooth", "Zigbee"],
-            correctIndex: 2,
             explanation: "Ruby."
         },
         {
@@ -217,7 +209,6 @@ const QUESTIONS = {
             question: "Identify this Logo",
             image: "round1/MatlabLogo.png",
             choices: ["AMD", "Intel", "Nvidia", "Qualcomm"],
-            correctIndex: 2,
             explanation: "MatLab."
         },
         {
@@ -225,7 +216,6 @@ const QUESTIONS = {
             question: "Identify this Software",
             image: "round1/linux.jpg",
             choices: ["Go Gopher", "Python Snake", "Java Duke", "Rust Crab"],
-            correctIndex: 2,
             explanation: "Linux."
         },
         {
@@ -233,7 +223,6 @@ const QUESTIONS = {
             question: "Identify this Logo",
             image: "round1/java.png",
             choices: ["Winamp", "VLC Media Player", "Windows Media Player", "QuickTime"],
-            correctIndex: 1,
             explanation: "Java."
         },
         {
@@ -241,7 +230,6 @@ const QUESTIONS = {
             question: "Identify this Brand",
             image: "round1/Haskell-Logo.svg.png",
             choices: ["Predator", "ROG", "Alienware", "Omen"],
-            correctIndex: 2,
             explanation: "Haskell."
         },
         {
@@ -249,7 +237,6 @@ const QUESTIONS = {
             question: "Identify this App",
             image: "round1/Signal-Logo.svg",
             choices: ["WhatsApp", "Snapchat", "Telegram", "Signal"],
-            correctIndex: 1,
             explanation: "Signal app."
         },
         {
@@ -257,7 +244,6 @@ const QUESTIONS = {
             question: "Identify this App",
             image: "round1/dailyhunt.png",
             choices: ["Sega", "Nintendo", "Atari", "Commodore"],
-            correctIndex: 2,
             explanation: "Dailyhunt."
         },
         {
@@ -265,7 +251,6 @@ const QUESTIONS = {
             question: "Identify this Logo",
             image: "round1/html.png",
             choices: ["Ethernet", "HDMI", "USB", "Thunderbolt"],
-            correctIndex: 2,
             explanation: "HTML."
         },
         // Questions 16-40 (Placeholders for User Expansion)
@@ -274,7 +259,6 @@ const QUESTIONS = {
             question: "Identify this Framework",
             image: "round1/angular.png",
             choices: ["React", "Vue", "Angular", "Svelte"],
-            correctIndex: 2,
             explanation: "Angular."
         },
         {
@@ -282,7 +266,6 @@ const QUESTIONS = {
             question: "Identify this Language",
             image: "round1/rust logo.png",
             choices: ["Go", "Rust", "Ruby", "C#"],
-            correctIndex: 1,
             explanation: "Rust programming language."
         },
         {
@@ -290,7 +273,6 @@ const QUESTIONS = {
             question: "Identify this App",
             image: "round1/google sheet.png",
             choices: ["Excel", "Google Sheets", "Numbers", "Calc"],
-            correctIndex: 1,
             explanation: "Google Sheets."
         },
         {
@@ -298,7 +280,6 @@ const QUESTIONS = {
             question: "Identify this App",
             image: "round1/slack.png",
             choices: ["Discord", "Slack", "Teams", "Skype"],
-            correctIndex: 1,
             explanation: "Slack."
         },
         {
@@ -306,7 +287,6 @@ const QUESTIONS = {
             question: "Identify this App",
             image: "round1/zoom logo.png",
             choices: ["Skype", "Zoom", "Meet", "Webex"],
-            correctIndex: 1,
             explanation: "Zoom."
         },
         {
@@ -314,87 +294,76 @@ const QUESTIONS = {
             question: "Identify this Brand",
             image: "round1/dropbox.png",
             choices: ["Google Drive", "OneDrive", "Dropbox", "Box"],
-            correctIndex: 2,
             explanation: "Dropbox."
         },
         {
             id: 22,
-            question: "Identify this Brand",
-            image: "round1/pay pal.png",
+            question: "Identify this Logo",
+            image: "round1/hubspot.png",
             choices: ["Stripe", "PayPal", "Square", "Visa"],
-            correctIndex: 1,
-            explanation: "PayPal."
+            explanation: "HubSpot."
         },
         {
             id: 23,
             question: "Identify this Brand",
-            image: "round1/tesla logo.png",
+            image: "round1/at&t.png",
             choices: ["Ford", "Tesla", "Toyota", "Rivian"],
-            correctIndex: 1,
-            explanation: "Tesla."
+            explanation: "AT&T."
         },
         {
             id: 24,
             question: "Identify this Brand",
-            image: "round1/spacex.png",
+            image: "round1/airbnb.png",
             choices: ["NASA", "Blue Origin", "SpaceX", "Virgin Galactic"],
-            correctIndex: 2,
-            explanation: "SpaceX."
+            explanation: "Airbnb"
         },
         {
             id: 25,
             question: "Identify this Brand",
             image: "round1/playstation logo.png",
             choices: ["Xbox", "Nintendo", "PlayStation", "Sega"],
-            correctIndex: 2,
             explanation: "PlayStation."
         },
         {
             id: 26,
             question: "Identify this Brand",
-            image: "round1/intel-logo-3.webp",
+            image: "round1/opensea.jpg",
             choices: ["AMD", "Intel", "Nvidia", "Qualcomm"],
-            correctIndex: 1,
-            explanation: "Intel."
+            explanation: "Opensea."
         },
         {
             id: 27,
             question: "Identify this Brand",
-            image: "round1/canon.png",
+            image: "round1/gigabyte.png",
             choices: ["Nikon", "Sony", "Canon", "Fuji"],
-            correctIndex: 2,
-            explanation: "Canon."
+            explanation: "Gigabyte."
         },
         {
             id: 28,
             question: "Identify this Brand",
             image: "round1/nokia logo.png",
             choices: ["Motorola", "Nokia", "Samsung", "HTC"],
-            correctIndex: 1,
             explanation: "Nokia."
         },
         {
             id: 29,
             question: "Identify this Brand",
-            image: "round1/samsung logo.jpg",
+            image: "round1/everynote.jpg",
             choices: ["LG", "Samsung", "Sony", "Panasonic"],
-            correctIndex: 1,
-            explanation: "Samsung."
+            explanation: "Evernote."
         },
         {
             id: 30,
             question: "Identify this Brand",
-            image: "round1/Lenovo logo.jpg",
+            image: "round1/huwai.jpg",
             choices: ["Dell", "HP", "Lenovo", "Asus"],
-            correctIndex: 2,
-            explanation: "Lenovo."
+            explanation: "huawei."
         },
         {
             id: 31,
             question: "Identify this Brand",
             image: "round1/Cisco-logo.jpg",
             choices: ["Juniper", "Cisco", "Aruba", "Huawei"],
-            correctIndex: 1,
             explanation: "Cisco."
         },
         {
@@ -402,7 +371,6 @@ const QUESTIONS = {
             question: "Identify this Brand",
             image: "round1/Oracle-Logo.jpg",
             choices: ["SAP", "Oracle", "IBM", "Microsoft"],
-            correctIndex: 1,
             explanation: "Oracle."
         },
         {
@@ -410,7 +378,6 @@ const QUESTIONS = {
             question: "Identify this Brand",
             image: "round1/salesforce logo.png",
             choices: ["HubSpot", "Salesforce", "Zoho", "SAP"],
-            correctIndex: 1,
             explanation: "Salesforce."
         },
         {
@@ -418,7 +385,6 @@ const QUESTIONS = {
             question: "Identify this Brand",
             image: "round1/adobe logo.png",
             choices: ["Autodesk", "Adobe", "Corel", "Serif"],
-            correctIndex: 1,
             explanation: "Adobe."
         },
         {
@@ -426,23 +392,20 @@ const QUESTIONS = {
             question: "Identify this Brand",
             image: "round1/microsoft logo.png",
             choices: ["Apple", "Microsoft", "Google", "IBM"],
-            correctIndex: 1,
             explanation: "Microsoft."
         },
         {
             id: 36,
             question: "Identify this Brand",
-            image: "round1/amazon logo.png",
+            image: "round1/gitlab.png",
             choices: ["eBay", "Amazon", "Alibaba", "Walmart"],
-            correctIndex: 1,
-            explanation: "Amazon."
+            explanation: "GitLab."
         },
         {
             id: 37,
             question: "Identify this Brand",
             image: "round1/LinkedIn_icon.svg.png",
             choices: ["Facebook", "Twitter", "LinkedIn", "Xing"],
-            correctIndex: 2,
             explanation: "LinkedIn."
         },
         {
@@ -450,24 +413,21 @@ const QUESTIONS = {
             question: "Identify this Brand",
             image: "round1/Wikipedia logo.jpg",
             choices: ["WikiLeaks", "Wikipedia", "Wikivoyage", "Encyclopedia"],
-            correctIndex: 1,
             explanation: "Wikipedia."
         },
         {
             id: 39,
             question: "Identify this App",
-            image: "round1/yt studio.png",
+            image: "round1/linkedin app.jpg",
             choices: ["YouTube", "YouTube Studio", "Vim", "Twitch"],
-            correctIndex: 1,
-            explanation: "YouTube Studio."
+            explanation: "LinkedIn Learning app"
         },
         {
             id: 40,
             question: "Identify this Brand",
-            image: "round1/Firefox_logo,_2019.svg.png",
+            image: "round1/grammerly.png",
             choices: ["Chrome", "Edge", "Firefox", "Opera"],
-            correctIndex: 2,
-            explanation: "Mozilla Firefox."
+            explanation: "Grammarly."
         }
     ],
     2: [
@@ -478,7 +438,6 @@ const QUESTIONS = {
             question: "Who is the CEO of this company?",
             image: "round2/Nvidia_logo.svg.png", // Replace with Google/Sundar Pichai image
             choices: ["Satya Nadella", "Sundar Pichai", "Tim Cook", "Mark Zuckerberg"],
-            correctIndex: 1,
             explanation: "Jensen Huang is the CEO of NVIDIA."
         },
         {
@@ -486,7 +445,6 @@ const QUESTIONS = {
             question: "Identify the Company led by this CEO",
             image: "round2/microsoft ceo.jpg", // Replace with Satya Nadella image
             choices: ["Oracle", "Microsoft", "Salesforce", "IBM"],
-            correctIndex: 1,
             explanation: "Satya Nadella has been the CEO of Microsoft since 2014."
         },
         {
@@ -494,7 +452,6 @@ const QUESTIONS = {
             question: "Who is the first CEO of this company?",
             image: "round2/google.png", // Replace with Amazon/Bezos image
             choices: ["Jeff Bezos", "Elon Musk", "Bill Gates", "Larry Page"],
-            correctIndex: 0,
             explanation: "Larry Page is the first CEO of Google."
         },
         {
@@ -502,7 +459,6 @@ const QUESTIONS = {
             question: "Who is the Founder of Zoho?",
             image: "round2/zoho.png", // Replace with Lisa Su image
             choices: ["Lisa Su", "Jensen Huang", "Ginni Rometty", "Sheryl Sandberg"],
-            correctIndex: 0,
             explanation: "Zoho Corporation was founded by Sridhar Vembu."
         },
         {
@@ -510,7 +466,6 @@ const QUESTIONS = {
             question: "Who is the CEO of this company?",
             image: "round2/apple.logo.png", // Replace with SpaceX/Tesla logo
             choices: ["SpaceX", "Blue Origin", "Virgin Galactic", "Boeing"],
-            correctIndex: 0,
             explanation: "Tim Cook."
         },
         // ... Placeholder for remaining 15 questions ...
@@ -528,7 +483,6 @@ const QUESTIONS = {
             question: "Identify this CEO",
             image: "round2/ibm ceo.webp",
             choices: ["Arvind Krishna", "Shantanu Narayen", "Neal Mohan", "Sundar Pichai"],
-            correctIndex: 0,
             explanation: "CEO of IBM is Arvind Krishna."
         },
         {
@@ -536,7 +490,6 @@ const QUESTIONS = {
             question: "Identify this Tech Leader",
             image: "round1/nvidia ceo.png",
             choices: ["Jensen Huang", "Lisa Su", "Sundar Pichai", "Satya Nadella"],
-            correctIndex: 0,
             explanation: "Jensen Huang is the CEO of Nvidia."
         },
         {
@@ -544,7 +497,6 @@ const QUESTIONS = {
             question: "Which Group owns this company?",
             image: "round2/tcs logo.jpg",
             choices: ["Reliance", "Tata Group", "Adani Group", "Infosys"],
-            correctIndex: 1,
             explanation: "TCS is part of the Tata Group."
         },
         {
@@ -552,7 +504,6 @@ const QUESTIONS = {
             question: "What are major companies owned by this guy?",
             image: "round2/elon.jpg",
             choices: ["Jeff Bezos", "Elon Musk", "Richard Branson", "Peter Beck"],
-            correctIndex: 1,
             explanation: "Tesla and SpaceX."
         },
         {
@@ -560,7 +511,6 @@ const QUESTIONS = {
             question: "Who is the CEO of Salesforce?",
             image: "round1/salesforce logo.png",
             choices: ["Marc Benioff", "Larry Ellison", "Satya Nadella", "Sundar Pichai"],
-            correctIndex: 0,
             explanation: "Marc Benioff is the Chair and CEO of Salesforce."
         },
         {
@@ -568,7 +518,6 @@ const QUESTIONS = {
             question: "Who founded Oracle?",
             image: "round1/Oracle-Logo.jpg",
             choices: ["Larry Page", "Larry Ellison", "Sergey Brin", "Steve Ballmer"],
-            correctIndex: 1,
             explanation: "Larry Ellison co-founded Oracle."
         }
     ],
@@ -579,7 +528,6 @@ const QUESTIONS = {
             question: "which company tagline is Don’t Be Evil?",
             image: "round2/google.png", // Text question, but keeping placeholder if needed or null
             choices: ["Guido van Rossum", "James Gosling", "Dennis Ritchie", "Bjarne Stroustrup"],
-            correctIndex: 0,
             explanation: "Google's tagline is Don't Be Evil."
         },
         {
@@ -587,7 +535,6 @@ const QUESTIONS = {
             question: "Which company tagline is Think Different?",
             image: "round2/apple.logo.png", // Replace with Python/Java logo
             choices: ["Python", "Java", "C++", "JavaScript"],
-            correctIndex: 0,
             explanation: "Apple's tagline is Think Different."
         },
         {
@@ -595,7 +542,6 @@ const QUESTIONS = {
             question: "which company tagline is move fast and break things?",
             image: "round3/meta logo.png", // Text only
             choices: ["1991", "1995", "1998", "2000"],
-            correctIndex: 1,
             explanation: "Meta (formerly Facebook) has the tagline 'Move Fast and Break Things'."
         },
         {
@@ -603,7 +549,6 @@ const QUESTIONS = {
             question: "which company tagline is I’m Lovin’ It",
             image: "round3/McDonald's.jpg", // Replace with Adobe/Microsoft logo
             choices: ["Adobe", "Microsoft", "Salesforce", "Oracle"],
-            correctIndex: 1,
             explanation: "McDonald's tagline is I'm Lovin' It."
         },
         {
@@ -611,7 +556,6 @@ const QUESTIONS = {
             question: "Which company tagline is The Ultimate Driving Machine ",
             image: "round3/bmw.jpg",
             choices: ["Ken Thompson", "Bjarne Stroustrup", "Brian Kernighan", "Linus Torvalds"],
-            correctIndex: 1,
             explanation: "BMW's tagline is The Ultimate Driving Machine."
         },
         {
@@ -619,7 +563,6 @@ const QUESTIONS = {
             question: "which company tagline is The browser that respects your privacy",
             image: "round1/Firefox_logo,_2019.svg.png",
             choices: ["Chrome", "Firefox", "Edge", "Safari"],
-            correctIndex: 1,
             explanation: "The browser that respects your privacy is Firefox."
         },
         {
@@ -627,7 +570,6 @@ const QUESTIONS = {
             question: "Which company tagline is Work Hard, Have Fun, Make History",
             image: "round1/amazon logo.png",
             choices: ["2002", "2004", "2006", "2008"],
-            correctIndex: 1,
             explanation: "Amazon's tagline is Work Hard, Have Fun, Make History."
         },
         {
@@ -643,16 +585,28 @@ const QUESTIONS = {
             question: "Which company tagline is Just Do It",
             image: "round3/nike.png",
             choices: ["Tim Berners-Lee", "Vint Cerf", "Marc Andreessen", "Robert Kahn"],
-            correctIndex: 0,
             explanation: "Nike's tagline is Just Do It."
         },
         {
             id: 10,
-            question: "Which company tagline is Nothing is Impossible",
-            image: "round3/adidas.png",
+            question: "Which company tagline is Integrated Cloud Applications & Platform Services",
+            image: "round1/Oracle-Logo.jpg",
             choices: ["Android", "iOS", "Linux", "Windows"],
-            correctIndex: 0,
-            explanation: "Adidas's tagline is Nothing is Impossible."
+            explanation: "Oracle's tagline is Integrated Cloud Applications & Platform Services."
+        },
+        {
+            id: 11,
+            question: "Which company tagline is Browse Faster. Block Ads. Save Data.",
+            image: "round3/brave.png",
+            choices: ["Android", "iOS", "Linux", "Windows"],
+            explanation: "Brave's tagline is Browse Faster. Block Ads. Save Data."
+        },
+        {
+            id: 12,
+            question: "Which company tagline is Think.",
+            image: "round2/ibm.png",
+            choices: ["Android", "iOS", "Linux", "Windows"],
+            explanation: "IBM's tagline is Think."
         },
 
     ]
@@ -718,6 +672,27 @@ function clearGameState() {
     }
 }
 
+function stopTimerAndSounds() {
+    if (timer) {
+        clearInterval(timer);
+        timer = null;
+    }
+    if (autoRevealInterval) {
+        clearInterval(autoRevealInterval);
+        autoRevealInterval = null;
+    }
+
+    // Stop all timer-related sounds
+    if (countdownSound) {
+        countdownSound.pause();
+        countdownSound.currentTime = 0;
+    }
+    if (alertSound) {
+        alertSound.pause();
+        alertSound.currentTime = 0;
+    }
+}
+
 // DOM Elements
 const startScreen = document.getElementById('startScreen');
 const roundScreen = document.getElementById('roundScreen');
@@ -750,6 +725,7 @@ let puzzleContainer, puzzleImage, puzzleGrid;
 const alertSound = document.getElementById('alertSound');
 const timeUpSound = document.getElementById('timeUpSound');
 const wrongSound = document.getElementById('wrongSound');
+const countdownSound = document.getElementById('countdownSound');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -972,7 +948,13 @@ function updateNumberGrid() {
         const state = gameState[currentRound][index];
         button.classList.remove('correct', 'incorrect', 'disabled', 'active');
 
-        if (state !== null) {
+        if (state === true) {
+            button.classList.add('correct');
+            button.classList.add('disabled');
+        } else if (state === false) {
+            button.classList.add('incorrect');
+            button.classList.add('disabled');
+        } else if (state !== null) {
             button.classList.add('disabled');
         }
 
@@ -1018,7 +1000,10 @@ function openQuestion(index) {
 
     // ROUND 1: LOGO PUZZLE
     if (currentRound === 1) {
-        if (questionText) questionText.style.display = 'none';
+        if (questionText) {
+            questionText.style.display = 'block';
+            questionText.textContent = questionData.question;
+        }
         if (choicesContainer) choicesContainer.style.display = 'none';
 
         if (puzzleContainer && puzzleImage) {
@@ -1104,14 +1089,22 @@ function setupPuzzleGrid() {
     if (!puzzleGrid) return;
     puzzleGrid.innerHTML = '';
 
+    // Track number of revealed tiles (max 4 for Round 1)
+    let revealedCount = 0;
+    const MAX_REVEALS = 4;
+
     // Create 12 tiles (4x3 grid) - INTERACTIVE
     for (let i = 0; i < 12; i++) {
         const tile = document.createElement('div');
         tile.className = 'puzzle-tile';
         tile.textContent = i + 1; // Add number 1-12
-        // Manual Reveal Click Listener
+        // Manual Reveal Click Listener with 4-box limit
         tile.addEventListener('click', function () {
-            this.classList.add('revealed');
+            // Only allow revealing if not already revealed and under the limit
+            if (!this.classList.contains('revealed') && revealedCount < MAX_REVEALS) {
+                this.classList.add('revealed');
+                revealedCount++;
+            }
         });
         puzzleGrid.appendChild(tile);
     }
@@ -1124,7 +1117,6 @@ function getDefaultQuestion(index, round) {
         question: "Bonus Question",
         image: "https://via.placeholder.com/500x400?text=Bonus",
         choices: ["A", "B", "C", "D"],
-        correctIndex: 0,
         explanation: "This is a fallback."
     };
 }
@@ -1134,6 +1126,13 @@ function startTimer() {
     if (autoRevealInterval) clearInterval(autoRevealInterval);
 
     let alertPlayed = false;
+
+    // Start playing countdown sound
+    if (countdownSound) {
+        countdownSound.currentTime = 0;
+        countdownSound.volume = 0.5; // Set a reasonable volume
+        countdownSound.play().catch(e => console.log("Countdown sound play failed:", e));
+    }
 
     // Round 1 Auto-Reveal Logic REMOVED
 
@@ -1161,7 +1160,7 @@ function startTimer() {
         }
 
         if (timeLeft <= 0) {
-            clearInterval(timer);
+            stopTimerAndSounds();
             if (currentRound === 1) {
                 // Round 1: Show Answer
                 showRound1Result();
@@ -1196,8 +1195,8 @@ function showRound1Result() {
         questionData = getDefaultQuestion(currentQuestionIndex, currentRound);
     }
 
-    // Mark as "Answered"
-    gameState[currentRound][currentQuestionIndex] = true;
+    // Mark as "Answered" (Incorrect because time ran out)
+    gameState[currentRound][currentQuestionIndex] = false;
 
     // Save state after answering
     saveGameState();
@@ -1213,9 +1212,8 @@ function showRound1Result() {
     if (resultMessage) resultMessage.textContent = 'The Brand Was...';
 
     // Show Answer
-    const correctChoice = questionData.choices[questionData.correctIndex];
     if (correctAnswer) {
-        correctAnswer.textContent = correctChoice;
+        correctAnswer.textContent = questionData.explanation;
         correctAnswer.style.fontSize = "2rem";
     }
 
@@ -1246,8 +1244,8 @@ function showRound2Result() {
         questionData = getDefaultQuestion(currentQuestionIndex, currentRound);
     }
 
-    // Mark as "Answered" (Success/Viewed)
-    gameState[currentRound][currentQuestionIndex] = true;
+    // Mark as "Answered" (Incorrect because time ran out)
+    gameState[currentRound][currentQuestionIndex] = false;
 
     // Save state after answering
     saveGameState();
@@ -1294,8 +1292,8 @@ function showRound3Result() {
         questionData = getDefaultQuestion(currentQuestionIndex, currentRound);
     }
 
-    // Mark as "Answered"
-    gameState[currentRound][currentQuestionIndex] = true;
+    // Mark as "Answered" (Incorrect because time ran out)
+    gameState[currentRound][currentQuestionIndex] = false;
 
     // Save state after answering
     saveGameState();
@@ -1341,8 +1339,7 @@ function selectAnswer(choiceIndex) {
     if (isAnswerSelected) return;
 
     isAnswerSelected = true;
-    clearInterval(timer);
-    if (autoRevealInterval) clearInterval(autoRevealInterval);
+    stopTimerAndSounds();
 
     let questionData;
     if (QUESTIONS[currentRound] && QUESTIONS[currentRound][currentQuestionIndex % QUESTIONS[currentRound].length]) {
@@ -1351,7 +1348,7 @@ function selectAnswer(choiceIndex) {
         questionData = getDefaultQuestion(currentQuestionIndex, currentRound);
     }
 
-    const isCorrect = choiceIndex === questionData.correctIndex;
+    const isCorrect = true; // No selection logic, just reveal
 
     // Play wrong sound if incorrect
     if (!isCorrect && wrongSound) {
@@ -1400,10 +1397,8 @@ function showResult(isCorrect, questionData, selectedIndex) {
     if (explanationBox) explanationBox.textContent = questionData.explanation;
 
     // Show correct answer
-    const letters = ['A', 'B', 'C', 'D'];
-    const correctChoice = questionData.choices[questionData.correctIndex];
     if (correctAnswer) {
-        correctAnswer.textContent = `Correct: ${letters[questionData.correctIndex]}. ${correctChoice}`;
+        correctAnswer.textContent = questionData.explanation;
         correctAnswer.style.fontSize = "";
     }
 
@@ -1412,13 +1407,11 @@ function showResult(isCorrect, questionData, selectedIndex) {
         const choiceButtons = choicesContainer.querySelectorAll('.choice-btn');
         choiceButtons.forEach((button, index) => {
             button.disabled = true;
-            if (index === questionData.correctIndex) {
-                button.classList.add('correct');
-            } else if (index === selectedIndex) {
+            if (index === selectedIndex) {
                 button.classList.add('incorrect');
             }
         });
-        choicesContainer.style.display = 'none'; // Fade out choices? or allow seeing hints? user said "answer only show"
+        choicesContainer.style.display = 'none';
     }
 
     // Show result
@@ -1440,8 +1433,7 @@ function showResult(isCorrect, questionData, selectedIndex) {
 }
 
 function closeQuestionModal() {
-    if (timer) clearInterval(timer);
-    if (autoRevealInterval) clearInterval(autoRevealInterval);
+    stopTimerAndSounds();
     if (questionModal) questionModal.classList.remove('active');
 
     // Mark as skipped/incorrect if abandoned (unless already answered)
