@@ -154,6 +154,8 @@ const QUESTIONS = {
             image: "round1/React-icon.svg.png",
             choices: ["Oracle", "Sun Microsystems", "IBM", "Solaris"],
             explanation: "React js"
+            // Round 1 doesn't use choices/correctIndex logic in the same way, 
+            // but we leave it as is since it wasn't reported broken in the same way.
         },
         {
             id: 2,
@@ -432,57 +434,124 @@ const QUESTIONS = {
     ],
     2: [
         // Round 2: Tech Titans (CEO & Brand Identification)
-        // Note: Using 'college_logo.png' as placeholder. User should replace with actual CEO/Logo images.
         {
             id: 1,
-            question: "Who is the CEO of this company?",
-            image: "round2/Nvidia_logo.svg.png", // Replace with Google/Sundar Pichai image
-            choices: ["Satya Nadella", "Sundar Pichai", "Tim Cook", "Mark Zuckerberg"],
+            question: "Who is the CEO of this company (NVIDIA)?",
+            image: "round2/Nvidia_logo.svg.png",
+            choices: ["Satya Nadella", "Jensen Huang", "Tim Cook", "Mark Zuckerberg"],
+            correctIndex: 1,
             explanation: "Jensen Huang is the CEO of NVIDIA."
         },
         {
             id: 2,
-            question: "Identify the Company led by this CEO",
-            image: "round2/microsoft ceo.jpg", // Replace with Satya Nadella image
+            question: "Identify the Company led by Satya Nadella",
+            image: "round2/microsoft ceo.jpg",
             choices: ["Oracle", "Microsoft", "Salesforce", "IBM"],
+            correctIndex: 1,
             explanation: "Satya Nadella has been the CEO of Microsoft since 2014."
         },
         {
             id: 3,
-            question: "Who is the first CEO of this company?",
-            image: "round2/google.png", // Replace with Amazon/Bezos image
+            question: "Who is the first CEO of Google?",
+            image: "round2/google.png",
             choices: ["Jeff Bezos", "Elon Musk", "Bill Gates", "Larry Page"],
+            correctIndex: 3,
             explanation: "Larry Page is the first CEO of Google."
         },
         {
             id: 4,
             question: "Who is the Founder of Zoho?",
-            image: "round2/zoho.png", // Replace with Lisa Su image
-            choices: ["Lisa Su", "Jensen Huang", "Ginni Rometty", "Sheryl Sandberg"],
+            image: "round2/zoho.png",
+            choices: ["Lisa Su", "Sridhar Vembu", "Ginni Rometty", "Sheryl Sandberg"],
+            correctIndex: 1,
             explanation: "Zoho Corporation was founded by Sridhar Vembu."
         },
         {
             id: 5,
-            question: "Who is the CEO of this company?",
-            image: "round2/apple.logo.png", // Replace with SpaceX/Tesla logo
-            choices: ["SpaceX", "Blue Origin", "Virgin Galactic", "Boeing"],
+            question: "Who is the CEO of this company (Apple)?",
+            image: "round2/apple.logo.png",
+            choices: ["Tim Cook", "Steve Jobs", "Elon Musk", "Bill Gates"],
+            correctIndex: 0,
             explanation: "Tim Cook."
         },
-        // ... Placeholder for remaining 15 questions ...
-        { id: 6, question: "Who is the CEO of this company?", image: "round2/Adobe.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Shantanu Narayen" },
-        { id: 7, question: "Who is the Founder of this company?", image: "round2/wipro.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Azim Premji is the visionary Founder Chairman of Wipro" },
-        { id: 8, question: "Who is the Founder of tata", image: "round2/tata.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Jamsetji Nusserwanji Tata" },
-        { id: 9, question: "Who is the Founder of Microsoft", image: "round2/microsoft.avif", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Bill Gates and Paul Allen" },
-        { id: 10, question: "Who was the first youTuber?", image: "round2/youtube.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "Jawed Karim" },
-        { id: 11, question: "Identify the Company led by this CEO?", image: "round2/Neal_Mohan,_in_New_York_City_on_September_19,_2023_-_53199232941_(cropped).jpg", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "YouTube" },
-        { id: 12, question: "Who is the Founder of this company?", image: "round2/infosys.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "N. R. Narayana Murthy is the founder of Infosys" },
-        { id: 13, question: "Who is the CEO of this company?", image: "round2/gpt.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: " Sam Altman" },
-        { id: 14, question: "Who is the CEO of this company?", image: "round2/hcl.png", choices: ["A", "B", "C", "D"], correctIndex: 0, explanation: "C. Vijayakumar" },
+        {
+            id: 6,
+            question: "Who is the CEO of this company?",
+            image: "round2/Adobe.png",
+            choices: ["A", "Shantanu Narayen", "C", "D"],
+            correctIndex: 1,
+            explanation: "Shantanu Narayen"
+        },
+        {
+            id: 7,
+            question: "Who is the Founder of this company?",
+            image: "round2/wipro.png",
+            choices: ["Azim Premji", "B", "C", "D"],
+            correctIndex: 0,
+            explanation: "Azim Premji is the visionary Founder Chairman of Wipro"
+        },
+        {
+            id: 8,
+            question: "Who is the Founder of Tata?",
+            image: "round2/tata.png",
+            choices: ["Ratan Tata", "Jamsetji Nusserwanji Tata", "JRD Tata", "Cyrus Mistry"],
+            correctIndex: 1,
+            explanation: "Jamsetji Nusserwanji Tata"
+        },
+        {
+            id: 9,
+            question: "Who is the Founder of Microsoft?",
+            image: "round2/microsoft.avif",
+            choices: ["Bill Gates", "Steve Jobs", "Larry Page", "Mark Zuckerberg"],
+            correctIndex: 0,
+            explanation: "Bill Gates and Paul Allen"
+        },
+        {
+            id: 10,
+            question: "Who was the first YouTuber?",
+            image: "round2/youtube.png",
+            choices: ["Jawed Karim", "PewDiePie", "MrBeast", "Marks Brownlee"],
+            correctIndex: 0,
+            explanation: "Jawed Karim"
+        },
+        {
+            id: 11,
+            question: "Identify the Company led by this CEO?",
+            image: "round2/Neal_Mohan,_in_New_York_City_on_September_19,_2023_-_53199232941_(cropped).jpg",
+            choices: ["Google", "YouTube", "Meta", "Twitch"],
+            correctIndex: 1,
+            explanation: "YouTube"
+        },
+        {
+            id: 12,
+            question: "Who is the Founder of this company?",
+            image: "round2/infosys.png",
+            choices: ["N. R. Narayana Murthy", "Nandan Nilekani", "Vishal Sikka", "Salil Parekh"],
+            correctIndex: 0,
+            explanation: "N. R. Narayana Murthy is the founder of Infosys"
+        },
+        {
+            id: 13,
+            question: "Who is the CEO of OpenAI?",
+            image: "round2/gpt.png",
+            choices: ["Elon Musk", "Sam Altman", "Greg Brockman", "Ilya Sutskever"],
+            correctIndex: 1,
+            explanation: "Sam Altman"
+        },
+        {
+            id: 14,
+            question: "Who is the CEO of this company?",
+            image: "round2/hcl.png",
+            choices: ["Shiv Nadar", "C. Vijayakumar", "Roshni Nadar", "Vineet Nayar"],
+            correctIndex: 1,
+            explanation: "C. Vijayakumar"
+        },
         {
             id: 15,
             question: "Identify this CEO",
             image: "round2/ibm ceo.webp",
             choices: ["Arvind Krishna", "Shantanu Narayen", "Neal Mohan", "Sundar Pichai"],
+            correctIndex: 0,
             explanation: "CEO of IBM is Arvind Krishna."
         },
         {
@@ -490,6 +559,7 @@ const QUESTIONS = {
             question: "Identify this Tech Leader",
             image: "round1/nvidia ceo.png",
             choices: ["Jensen Huang", "Lisa Su", "Sundar Pichai", "Satya Nadella"],
+            correctIndex: 0,
             explanation: "Jensen Huang is the CEO of Nvidia."
         },
         {
@@ -497,13 +567,15 @@ const QUESTIONS = {
             question: "Which Group owns this company?",
             image: "round2/tcs logo.jpg",
             choices: ["Reliance", "Tata Group", "Adani Group", "Infosys"],
+            correctIndex: 1,
             explanation: "TCS is part of the Tata Group."
         },
         {
             id: 18,
             question: "What are major companies owned by this guy?",
             image: "round2/elon.jpg",
-            choices: ["Jeff Bezos", "Elon Musk", "Richard Branson", "Peter Beck"],
+            choices: ["Amazon", "Tesla and SpaceX", "Virgin", "Meta"],
+            correctIndex: 1,
             explanation: "Tesla and SpaceX."
         },
         {
@@ -511,6 +583,7 @@ const QUESTIONS = {
             question: "Who is the CEO of Salesforce?",
             image: "round1/salesforce logo.png",
             choices: ["Marc Benioff", "Larry Ellison", "Satya Nadella", "Sundar Pichai"],
+            correctIndex: 0,
             explanation: "Marc Benioff is the Chair and CEO of Salesforce."
         },
         {
@@ -518,6 +591,7 @@ const QUESTIONS = {
             question: "Who founded Oracle?",
             image: "round1/Oracle-Logo.jpg",
             choices: ["Larry Page", "Larry Ellison", "Sergey Brin", "Steve Ballmer"],
+            correctIndex: 1,
             explanation: "Larry Ellison co-founded Oracle."
         }
     ],
@@ -525,87 +599,98 @@ const QUESTIONS = {
         // Round 3: Tech History & Logos (Mixed)
         {
             id: 1,
-            question: "which company tagline is Don’t Be Evil?",
-            image: "round2/google.png", // Text question, but keeping placeholder if needed or null
-            choices: ["Guido van Rossum", "James Gosling", "Dennis Ritchie", "Bjarne Stroustrup"],
-            explanation: "Google's tagline is Don't Be Evil."
+            question: "Which company's first tagline is 'Don’t Be Evil'?",
+            image: "round2/google.png",
+            choices: ["Google", "Facebook", "Apple", "Microsoft"],
+            correctIndex: 0,
+            explanation: "Google's first tagline is Don't Be Evil."
         },
         {
             id: 2,
-            question: "Which company tagline is Think Different?",
-            image: "round2/apple.logo.png", // Replace with Python/Java logo
-            choices: ["Python", "Java", "C++", "JavaScript"],
+            question: "Which company tagline is 'Think Different'?",
+            image: "round2/apple.logo.png",
+            choices: ["IBM", "Apple", "Microsoft", "Intel"],
+            correctIndex: 1,
             explanation: "Apple's tagline is Think Different."
         },
         {
             id: 3,
-            question: "which company tagline is move fast and break things?",
-            image: "round3/meta logo.png", // Text only
-            choices: ["1991", "1995", "1998", "2000"],
+            question: "Which company tagline is 'Move fast and break things'?",
+            image: "round3/meta logo.png",
+            choices: ["Meta", "Google", "Amazon", "Twitter"],
+            correctIndex: 0,
             explanation: "Meta (formerly Facebook) has the tagline 'Move Fast and Break Things'."
         },
         {
             id: 4,
-            question: "which company tagline is I’m Lovin’ It",
-            image: "round3/McDonald's.jpg", // Replace with Adobe/Microsoft logo
-            choices: ["Adobe", "Microsoft", "Salesforce", "Oracle"],
+            question: "Which company tagline is 'I’m Lovin’ It'?",
+            image: "round3/McDonald's.jpg",
+            choices: ["KFC", "Burger King", "McDonald's", "Subway"],
+            correctIndex: 2,
             explanation: "McDonald's tagline is I'm Lovin' It."
         },
         {
             id: 5,
-            question: "Which company tagline is The Ultimate Driving Machine ",
+            question: "Which company tagline is 'The Ultimate Driving Machine'?",
             image: "round3/bmw.jpg",
-            choices: ["Ken Thompson", "Bjarne Stroustrup", "Brian Kernighan", "Linus Torvalds"],
+            choices: ["Mercedes", "Audi", "BMW", "Toyota"],
+            correctIndex: 2,
             explanation: "BMW's tagline is The Ultimate Driving Machine."
         },
         {
             id: 6,
-            question: "which company tagline is The browser that respects your privacy",
+            question: "Which company tagline is 'The browser that respects your privacy'?",
             image: "round1/Firefox_logo,_2019.svg.png",
             choices: ["Chrome", "Firefox", "Edge", "Safari"],
+            correctIndex: 1,
             explanation: "The browser that respects your privacy is Firefox."
         },
         {
             id: 7,
-            question: "Which company tagline is Work Hard, Have Fun, Make History",
+            question: "Which company tagline is 'Work Hard, Have Fun, Make History'?",
             image: "round1/amazon logo.png",
-            choices: ["2002", "2004", "2006", "2008"],
+            choices: ["Amazon", "Google", "SpaceX", "Tesla"],
+            correctIndex: 0,
             explanation: "Amazon's tagline is Work Hard, Have Fun, Make History."
         },
         {
             id: 8,
-            question: "Which company tagline is Connecting People",
+            question: "Which company tagline is 'Connecting People'?",
             image: "round1/nokia logo.png",
-            choices: ["MySQL", "PostgreSQL", "MongoDB", "Redis"],
+            choices: ["Samsung", "Apple", "Nokia", "Motorola"],
             correctIndex: 2,
             explanation: "Nokia's tagline is Connecting People."
         },
         {
             id: 9,
-            question: "Which company tagline is Just Do It",
+            question: "Which company tagline is 'Just Do It'?",
             image: "round3/nike.png",
-            choices: ["Tim Berners-Lee", "Vint Cerf", "Marc Andreessen", "Robert Kahn"],
+            choices: ["Adidas", "Puma", "Nike", "Reebok"],
+            correctIndex: 2,
             explanation: "Nike's tagline is Just Do It."
         },
         {
             id: 10,
-            question: "Which company tagline is Integrated Cloud Applications & Platform Services",
+            question: "Which company tagline is 'Integrated Cloud Applications & Platform Services'?",
             image: "round1/Oracle-Logo.jpg",
-            choices: ["Android", "iOS", "Linux", "Windows"],
+            choices: ["AWS", "Azure", "Oracle", "Google Cloud"],
+            correctIndex: 2,
             explanation: "Oracle's tagline is Integrated Cloud Applications & Platform Services."
         },
         {
             id: 11,
-            question: "Which company tagline is Browse Faster. Block Ads. Save Data.",
+            question: "Which company tagline is 'Browse Faster. Block Ads. Save Data.'?",
             image: "round3/brave.png",
-            choices: ["Android", "iOS", "Linux", "Windows"],
+            choices: ["Opera", "Brave", "Firefox", "Vivaldi"],
+            correctIndex: 1,
             explanation: "Brave's tagline is Browse Faster. Block Ads. Save Data."
         },
         {
             id: 12,
-            question: "Which company tagline is Think.",
+            question: "Which company tagline is 'Think'?",
             image: "round2/ibm.png",
-            choices: ["Android", "iOS", "Linux", "Windows"],
+            choices: ["Apple", "Microsoft", "IBM", "Intel"],
+            correctIndex: 2,
             explanation: "IBM's tagline is Think."
         },
 
@@ -717,6 +802,7 @@ const backButton = document.getElementById('backButton');
 const resetRound = document.getElementById('resetRound');
 const backToRounds = document.getElementById('backToRounds');
 const completionMessage = document.getElementById('completionMessage');
+const revealAnswerBtn = document.getElementById('revealAnswerBtn');
 
 // Puzzle Elements (Will be created in HTML, but selecting safely here)
 let puzzleContainer, puzzleImage, puzzleGrid;
@@ -726,6 +812,24 @@ const alertSound = document.getElementById('alertSound');
 const timeUpSound = document.getElementById('timeUpSound');
 const wrongSound = document.getElementById('wrongSound');
 const countdownSound = document.getElementById('countdownSound');
+
+// TTS Support
+let speechSynth = window.speechSynthesis;
+
+function speakAnswer(text) {
+    if (!speechSynth) return;
+
+    // Cancel any ongoing speech
+    speechSynth.cancel();
+
+    const cleaningRegex = /(identify this|who is the|which company|tagline is)/gi;
+    const cleanText = text.replace(cleaningRegex, "").trim();
+
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
+    speechSynth.speak(utterance);
+}
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -798,6 +902,10 @@ function setupEventListeners() {
         completionModal.classList.remove('active');
         goToStartScreen();
     });
+
+    if (revealAnswerBtn) {
+        revealAnswerBtn.addEventListener('click', handleRevealAnswer);
+    }
 
     // Rules Modal Logic
     const rulesBtn = document.getElementById('rulesBtn');
@@ -1064,6 +1172,12 @@ function openQuestion(index) {
     // Start Timer
     startTimer();
 
+    // Reset Reveal Button
+    if (revealAnswerBtn) {
+        revealAnswerBtn.disabled = false;
+        revealAnswerBtn.style.display = 'flex';
+    }
+
     // Show modal
     if (questionModal) questionModal.classList.add('active');
 }
@@ -1215,6 +1329,7 @@ function showRound1Result() {
     if (correctAnswer) {
         correctAnswer.textContent = questionData.explanation;
         correctAnswer.style.fontSize = "2rem";
+        speakAnswer(questionData.explanation);
     }
 
     if (explanationBox) {
@@ -1224,13 +1339,13 @@ function showRound1Result() {
 
     if (resultContainer) resultContainer.style.display = 'block';
 
-    // Auto-close after delay
-    setTimeout(() => {
-        if (questionModal) questionModal.classList.remove('active');
-        updateProgress();
-        updateNumberGrid();
-        checkRoundCompletion();
-    }, 4000);
+    // Auto-close removed as per request - wait for user to click close
+    // setTimeout(() => {
+    //     if (questionModal) questionModal.classList.remove('active');
+    //     updateProgress();
+    //     updateNumberGrid();
+    //     checkRoundCompletion();
+    // }, 4000);
 }
 
 function showRound2Result() {
@@ -1263,6 +1378,7 @@ function showRound2Result() {
         correctAnswer.textContent = correctChoice;
         correctAnswer.style.fontSize = "2rem";
         correctAnswer.style.color = "var(--text-main)";
+        speakAnswer(correctChoice);
     }
 
     if (explanationBox) {
@@ -1272,13 +1388,13 @@ function showRound2Result() {
 
     if (resultContainer) resultContainer.style.display = 'block';
 
-    // Auto-close after delay (Slightly longer for reading)
-    setTimeout(() => {
-        if (questionModal) questionModal.classList.remove('active');
-        updateProgress();
-        updateNumberGrid();
-        checkRoundCompletion();
-    }, 5000);
+    // Auto-close removed as per request - wait for user to click close
+    // setTimeout(() => {
+    //     if (questionModal) questionModal.classList.remove('active');
+    //     updateProgress();
+    //     updateNumberGrid();
+    //     checkRoundCompletion();
+    // }, 5000);
 }
 
 function showRound3Result() {
@@ -1317,6 +1433,7 @@ function showRound3Result() {
         correctAnswer.textContent = correctChoice;
         correctAnswer.style.fontSize = "2rem";
         correctAnswer.style.color = "var(--text-main)";
+        speakAnswer(correctChoice);
     }
 
     if (explanationBox) {
@@ -1326,13 +1443,13 @@ function showRound3Result() {
 
     if (resultContainer) resultContainer.style.display = 'block';
 
-    // Auto-close after delay
-    setTimeout(() => {
-        if (questionModal) questionModal.classList.remove('active');
-        updateProgress();
-        updateNumberGrid();
-        checkRoundCompletion();
-    }, 5000);
+    // Auto-close removed as per request - wait for user to click close
+    // setTimeout(() => {
+    //     if (questionModal) questionModal.classList.remove('active');
+    //     updateProgress();
+    //     updateNumberGrid();
+    //     checkRoundCompletion();
+    // }, 5000);
 }
 
 function selectAnswer(choiceIndex) {
@@ -1423,13 +1540,13 @@ function showResult(isCorrect, questionData, selectedIndex) {
         puzzleImage.src = questionData.image;
     }
 
-    // Auto-close after delay
-    setTimeout(() => {
-        if (questionModal) questionModal.classList.remove('active');
-        updateProgress();
-        updateNumberGrid();
-        checkRoundCompletion();
-    }, 2500);
+    // Auto-close removed as per request - wait for user to click close
+    // setTimeout(() => {
+    //     if (questionModal) questionModal.classList.remove('active');
+    //     updateProgress();
+    //     updateNumberGrid();
+    //     checkRoundCompletion();
+    // }, 2500);
 }
 
 function closeQuestionModal() {
@@ -1446,9 +1563,31 @@ function closeQuestionModal() {
         saveGameState();
 
         if (wrongSound) wrongSound.play().catch(e => console.log("Wrong sound play failed:", e));
-        updateProgress();
-        updateNumberGrid();
-        checkRoundCompletion();
+    }
+
+    // Always update UI when closing modal
+    updateProgress();
+    updateNumberGrid();
+    checkRoundCompletion();
+}
+
+function handleRevealAnswer() {
+    if (isAnswerSelected) return;
+
+    // Stop timer and reveal
+    stopTimerAndSounds();
+
+    if (revealAnswerBtn) {
+        revealAnswerBtn.disabled = true;
+    }
+
+    // Reuse existing round result logic
+    if (currentRound === 1) {
+        showRound1Result();
+    } else if (currentRound === 2) {
+        showRound2Result();
+    } else if (currentRound === 3) {
+        showRound3Result();
     }
 }
 
