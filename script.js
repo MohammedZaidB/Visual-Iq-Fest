@@ -136,8 +136,8 @@ const ROUND_INFO = {
         totalQuestions: 20
     },
     3: {
-        name: "Tech History & Logos",
-        description: "Programming history, launch dates, and company logos.",
+        name: "Identify the Tagline",
+        description: "Identify the company from the tagline.",
         totalQuestions: 12
     }
 };
