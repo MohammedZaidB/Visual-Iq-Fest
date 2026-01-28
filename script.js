@@ -1169,8 +1169,10 @@ function openQuestion(index) {
     }
     updateNumberGrid();
 
-    // Start Timer
-    startTimer();
+    // Start Timer (Moved to first click for Round 1)
+    if (currentRound !== 1) {
+        startTimer();
+    }
 
     // Reset Reveal Button
     if (revealAnswerBtn) {
@@ -1215,9 +1217,14 @@ function setupPuzzleGrid() {
         // Manual Reveal Click Listener with 4-box limit
         tile.addEventListener('click', function () {
             // Only allow revealing if not already revealed and under the limit
-            if (!this.classList.contains('revealed') && revealedCount < MAX_REVEALS) {
+            if (!this.classList.contains('revealed') && !isAnswerSelected && revealedCount < MAX_REVEALS) {
                 this.classList.add('revealed');
                 revealedCount++;
+
+                // For Round 1: Start timer ONLY after the 4th manual reveal as requested
+                if (revealedCount === MAX_REVEALS && currentRound === 1 && !timer) {
+                    startTimer();
+                }
             }
         });
         puzzleGrid.appendChild(tile);
