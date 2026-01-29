@@ -231,6 +231,32 @@ button {
     opacity: 0.6;
 }
 
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 3.5rem;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0.75rem;
+    padding: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.toggle-password:hover {
+    color: var(--accent);
+    opacity: 1;
+}
+
 .login-error {
     color: var(--error);
     font-size: 0.875rem;
@@ -240,11 +266,12 @@ button {
     background: rgba(239, 68, 68, 0.1);
     border-radius: var(--radius-sm);
     display: none;
-    animation: shake 0.4s ease;
+    line-height: 1.4;
 }
 
 .login-error.active {
     display: block;
+    animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 .login-btn {

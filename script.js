@@ -1,6 +1,6 @@
 // ============================================
-// CAMBRIDGE UNIVERSITY QUIZ
-// Computer Science Department
+// ISLAMIAH COLLEGE (AUTONOMOUS)
+// Department of Computer Science & BCA
 // ============================================
 
 // ============================================
@@ -17,12 +17,27 @@ function initLogin() {
     const loginEmail = document.getElementById('loginEmail');
     const loginPassword = document.getElementById('loginPassword');
     const loginError = document.getElementById('loginError');
+    const togglePassword = document.getElementById('togglePassword');
 
-    // Check if already logged in
+    // Check if already logged in - Do this BEFORE anything else to avoid flash
     const isLoggedIn = localStorage.getItem('visualiq_logged_in');
     if (isLoggedIn === 'true') {
-        showMainContent();
+        if (loginScreen) loginScreen.style.display = 'none';
+        if (mainContent) mainContent.style.display = 'block';
         return;
+    } else {
+        // Only show login screen if not logged in
+        if (loginScreen) loginScreen.style.display = 'flex';
+    }
+
+    // Toggle Password Visibility
+    if (togglePassword && loginPassword) {
+        togglePassword.addEventListener('click', () => {
+            const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            loginPassword.setAttribute('type', type);
+            togglePassword.querySelector('i').classList.toggle('fa-eye');
+            togglePassword.querySelector('i').classList.toggle('fa-eye-slash');
+        });
     }
 
     // Login button click handler
@@ -30,47 +45,52 @@ function initLogin() {
         loginBtn.addEventListener('click', handleLogin);
     }
 
-    // Enter key support
-    if (loginEmail) {
-        loginEmail.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleLogin();
-        });
-    }
-    if (loginPassword) {
-        loginPassword.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleLogin();
-        });
-    }
+    // Enter key support - Using keydown for better reliability
+    [loginEmail, loginPassword].forEach(input => {
+        if (input) {
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleLogin();
+                }
+            });
+        }
+    });
 
     function handleLogin() {
         const email = loginEmail.value.trim();
         const password = loginPassword.value;
 
+        // Reset error state
+        loginError.classList.remove('active');
+        // Force reflow to allow animation to re-trigger
+        void loginError.offsetWidth;
+
+        if (!email || !password) {
+            loginError.textContent = 'Please enter both email and password.';
+            loginError.classList.add('active');
+            return;
+        }
+
         if (email === VALID_EMAIL && password === VALID_PASSWORD) {
             // Success
             localStorage.setItem('visualiq_logged_in', 'true');
-            loginError.classList.remove('active');
             showMainContent();
         } else {
             // Error
             loginError.textContent = 'Invalid email or password. Please try again.';
             loginError.classList.add('active');
-
-            // Shake animation
-            setTimeout(() => {
-                loginError.classList.remove('active');
-            }, 3000);
         }
     }
 
     function showMainContent() {
         if (loginScreen) {
-            loginScreen.style.animation = 'fadeOut 0.4s ease';
+            loginScreen.style.animation = 'fadeOut 0.4s ease forwards';
             setTimeout(() => {
                 loginScreen.style.display = 'none';
                 if (mainContent) {
                     mainContent.style.display = 'block';
-                    mainContent.style.animation = 'fadeIn 0.6s ease';
+                    mainContent.style.animation = 'fadeIn 0.6s ease forwards';
                 }
             }, 400);
         }
